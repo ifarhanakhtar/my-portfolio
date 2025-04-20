@@ -5,6 +5,48 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W7C49METX1"></script>
         <script type="text/javascript" charset="UTF-8" src="//cdn.cookie-script.com/s/4d6bb1427ada5211535863acdb134204.js"></script>
 <script>
+
+// Define dataLayer and the gtag function.
+
+window.dataLayer = window.dataLayer || [];
+
+function gtag(){dataLayer.push(arguments);}
+
+ 
+// IMPORTANT - DO NOT COPY/PASTE WITHOUT MODIFYING REGION LIST
+
+// Set default consent for specific regions according to your requirements
+
+gtag('consent', 'default', {
+
+  'ad_storage': 'denied',
+
+  'ad_user_data': 'denied',
+
+  'ad_personalization': 'denied',
+
+  'analytics_storage': 'denied',
+
+ 'regions':[<list of ISO 3166-2 region codes>]
+
+});
+
+// Set default consent for all other regions according to your requirements
+
+gtag('consent', 'default', {
+
+  'ad_storage': 'denied',
+
+  'ad_user_data': 'denied',
+
+  'ad_personalization': 'denied',
+
+  'analytics_storage': 'denied'
+
+});
+
+</script>
+        <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
