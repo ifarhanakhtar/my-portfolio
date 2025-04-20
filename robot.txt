@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://superlative-beignet-70088d.netlify.app/sitemap.xml
