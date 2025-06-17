@@ -49,7 +49,7 @@ a:hover {
 }
 
 .logo {
-    font-size: 2rem;   
+    font-size: 2rem;    
 }
 .logo:hover {
     cursor: default;
@@ -115,9 +115,11 @@ a:hover {
 .hamburger-icon.open span:last-child {
     transform: rotate(-45deg) translate(10px, -5px);
 }
-.hamburger-icon span:first-child {transform: none;}
-.hamburger-icon span:first-child {opacity: 1;}
-.hamburger-icon span:first-child {transform: none;}
+/* These three lines below were resetting transforms on first-child. Removed as they conflict with open state. */
+/* .hamburger-icon span:first-child {transform: none;} */
+/* .hamburger-icon span:first-child {opacity: 1;} */
+/* .hamburger-icon span:first-child {transform: none;} */
+
 
 section {
     padding-top: 4vh;
@@ -175,7 +177,7 @@ section {
 
 .icon {
     cursor: pointer;
-    height: 2rem;
+    height: 2rem; /* Keep this for general icons */
 }
 
 /*buttons*/
@@ -265,7 +267,7 @@ section {
 
 .section-container {
     gap: 4rem;
-    height: 80%;   
+    height: 80%;    
 }
 
 .section-pic-container {
@@ -274,7 +276,7 @@ section {
     margin: auto 0;
 }
 
-/*EXPERICANCE SECTION*/
+/*EXPERIENCE SECTION*/
 
 #experience {
     position: relative;
@@ -290,28 +292,54 @@ section {
 .experience-details-container {
     display: flex;
     justify-content: center;
-    flex-direction: column;    
+    flex-direction: column;      
 }
 
 .article-container {
     display: flex;
-    text-align: initial;
+    /* text-align: initial; Remove as it's not a flex item's property for content alignment */
     flex-wrap: wrap;
     flex-direction: row;
-    gap: 2.5rem;
-    justify-content: space-around;
+    gap: 2.5rem; /* Gap between individual skill articles */
+    justify-content: center; /* Center the entire block of skills */
+    align-items: flex-start; /* Align all rows to the top. Can also try 'center' or 'stretch' */
 }
 
+/* Specific styling for skill articles to ensure uniformity */
 article {
     display: flex;
-    width: 10rem;
-    justify-content: space-around;
-    gap: 0.5rem;
+    align-items: center; /* THIS IS KEY for vertical alignment of icon and text */
+    justify-content: flex-start; /* Aligns content to the start horizontally */
+    gap: 0.75rem; /* Space between checkmark icon and the text */
+    width: 10rem; /* Keep existing width for each skill item */
+    /* Optional: To ensure all skill items have roughly the same height,
+       you might set a min-height here based on your longest text + icon combination */
+    /* min-height: 4.5rem; */ /* Example: adjust this value if needed */
 }
 
+/* Adjustments for the checkmark icon within skill articles */
 article .icon {
     cursor: default;
+    width: 1.5rem; /* Adjust size as needed to match the screenshot or desired look */
+    height: 1.5rem; /* Keep aspect ratio */
+    flex-shrink: 0; /* Prevent the icon from shrinking */
 }
+
+/* Styles for the div containing the skill name and experience level */
+article > div { /* Targets the div directly inside each article */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically centers h3 and p within this div */
+    flex-grow: 1; /* Allows this div to take up available space, pushing content */
+    text-align: left; /* Ensure text aligns left within its container */
+}
+
+article h3,
+article p {
+    margin: 0; /* Remove default margins from h3 and p to prevent misalignment */
+    line-height: 1.2; /* Ensure consistent line height for text */
+}
+
 
 /*Project Section*/
 
