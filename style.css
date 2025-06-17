@@ -1,13 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
+/* GLOBAL STYLES */
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box; /* Added for better responsive behavior */
 }
 
 body {
     font-family: 'Poppins', sans-serif;
+    line-height: 1.6; /* Improved readability */
+    color: #333; /* Default text color */
 }
+
 html {
     scroll-behavior: smooth;
 }
@@ -20,17 +25,17 @@ a, .btn {
     transition: all 300ms ease;
 }
 
-nav, .nav-links {
-    display: flex;
-}
-
+/* NAVIGATION BAR */
 nav {
+    display: flex;
     justify-content: space-around;
     align-items: center;
     height: 17vh;
+    padding: 0 1rem; /* Added padding for smaller screens */
 }
 
 .nav-links {
+    display: flex;
     gap: 2rem;
     list-style: none;
     font-size: 1.5rem;
@@ -55,10 +60,22 @@ a:hover {
     cursor: default;
 }
 
-/*hamurger-menu*/
+/* HAMBURGER MENU */
 #hamburger-nav {
-    display: none;
+    /* Keeping this as 'display: none;' initially is important
+       if you have a desktop-specific nav that should be shown by default
+       or if you intend to only show the hamburger on smaller screens.
+       Since we're removing media queries, it will always be hidden.
+       If you want to SHOW the hamburger menu by default for a mobile-only layout,
+       you would change this to 'display: block;' or 'flex;'
+       and ensure #desktop-nav is 'display: none;'. */
+    display: block; /* Changed to block so hamburger is always visible if this is mobile-only */
 }
+
+#desktop-nav { /* Assuming you have a #desktop-nav wrapper in HTML */
+    display: none; /* Hide desktop nav for mobile-first, no media query */
+}
+
 
 .hamburger-menu {
     position: relative;
@@ -76,7 +93,7 @@ a:hover {
     width: 100%;
     height: 2px;
     background-color: black;
-    transition: all 0.3 ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 .menu-links {
     position: absolute;
@@ -86,7 +103,10 @@ a:hover {
     width: fit-content;
     max-height: 0;
     overflow: hidden;
-    transition: all 0.3 ease-in-out;
+    transition: all 0.3s ease-in-out;
+    z-index: 10;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .menu-links a {
@@ -96,7 +116,7 @@ a:hover {
     font-size: 1.5rem;
     color: black;
     text-decoration: none;
-    transition: all 0.3 ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 .menu-links li {
@@ -110,40 +130,70 @@ a:hover {
     transform: rotate(45deg) translate(10px, 5px);
 }
 .hamburger-icon.open span:nth-child(2) {
-    opacity: 0;;
+    opacity: 0;
 }
 .hamburger-icon.open span:last-child {
     transform: rotate(-45deg) translate(10px, -5px);
 }
-/* These three lines below were resetting transforms on first-child. Removed as they conflict with open state. */
-/* .hamburger-icon span:first-child {transform: none;} */
-/* .hamburger-icon span:first-child {opacity: 1;} */
-/* .hamburger-icon span:first-child {transform: none;} */
+/* Revert hamburger icon state when closed */
+.hamburger-icon:not(.open) span:first-child { transform: none; }
+.hamburger-icon:not(.open) span:nth-child(2) { opacity: 1; }
+.hamburger-icon:not(.open) span:last-child { transform: none; }
 
 
+/* SECTIONS */
 section {
     padding-top: 4vh;
     height: 96vh;
-    margin: 0 10rem;
+    margin: 0 1rem; /* Reduced margin for mobile */
     box-sizing: border-box;
     min-height: fit-content;
-}
-.section-container {
     display: flex;
+    flex-direction: column; /* Default to column for mobile-first */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
+.section-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem; /* Reduced gap for mobile */
+    width: 100%;
+    max-width: 1200px;
+}
+
+.title {
+    font-size: 2.5rem; /* Adjusted for mobile */
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* PROFILE SECTION */
 #profile {
     display: flex;
     justify-content: center;
-    gap: 5rem;
+    gap: 2rem; /* Reduced gap for mobile */
     height: 80vh;  
+    flex-direction: column; /* Always column for mobile-first */
+    padding-top: 4vh;
+    padding-bottom: 4vh;
 }
 
 .section-pic-container {
     display: flex;
-    height: 400px;
-    width:400px;
-    margin: auto 0;
+    justify-content: center;
+    height: 250px; /* Adjusted size for mobile */
+    width: 250px; /* Adjusted size for mobile */
+    margin: 0 auto; /* Center image */
+    border-radius: 2rem;
+    overflow: hidden;
+}
+.section-pic-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .section-text {
@@ -157,43 +207,41 @@ section {
 
 .section-text-p1 {
     text-align: center;
+    font-size: 1rem; /* Adjusted for mobile */
 }
 
 .section-text-p2 {
-    font-size: 1.74rem;
-    margin-bottom: 1rem;
-}
-.title {
-    font-size: 3rem;
-    text-align: center;
+    font-size: 1.5rem; /* Adjusted for mobile */
+    margin-bottom: 0.75rem;
 }
 
 #socials-container {
     display: flex;
     justify-content: center;
-    margin-top: 3rem;
-    gap: 1rem;
+    margin-top: 1.5rem; /* Reduced margin for mobile */
+    gap: 0.75rem; /* Reduced gap for mobile */
 }
 
 .icon {
     cursor: pointer;
-    height: 2rem; /* Keep this for general icons */
+    height: 1.75rem; /* Adjusted for mobile */
 }
 
-/*buttons*/
+/* BUTTONS */
 .btn-container {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 0.75rem; /* Reduced gap for mobile */
+    flex-wrap: wrap;
 }
 
 .btn {
     font-weight: 600;
     transition: all 300ms ease;
-    padding: 1rem;
-    width: 8rem;
+    padding: 0.8rem 1.2rem; /* Adjusted padding for mobile */
+    width: 7rem; /* Adjusted width for mobile */
     border-radius: 2rem;
-
+    font-size: 0.9rem; /* Adjusted font size for mobile */
 }
 .btn-color-1, .btn-color-2 {
     border: rgb(53, 53, 53) 0.1rem solid;
@@ -221,14 +269,10 @@ section {
     border: rgb(255, 255, 255) 0.1rem solid;
 }
 
-.btn-container {
-    gap: 1rem;
-}
-
-/*ABOUT SECTION*/
-
+/* ABOUT SECTION */
 #about {
     position: relative;
+    padding-bottom: 2vh;
 }
 
 .about-container, .about-details-container {
@@ -236,115 +280,123 @@ section {
 }
 
 .about-container {
-    gap: 2rem;
-    margin-bottom: 2rem;
-    margin-top: 2rem;
+    gap: 1.5rem; /* Reduced gap for mobile */
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    flex-direction: column; /* Always column for mobile-first */
 }
 
 .about-details-container {
     justify-content: center;
     flex-direction: column;
+    width: 100%;
 }
 
 .about-pic {
     border-radius: 2rem;
+    max-width: 250px; /* Adjusted size for mobile */
+    height: auto;
+    margin: 0 auto 1rem auto;
 }
+.text-container p {
+    font-size: 0.9rem; /* Adjusted for mobile */
+    text-align: center; /* Center text on mobile */
+    padding: 0 0.5rem;
+}
+
 .arrow {
     position: absolute;
-    right: -5rem;
-    bottom: 2.5rem;
+    right: -2rem; /* Adjusted position for mobile */
+    bottom: 1.5rem; /* Adjusted position for mobile */
+    display: none; /* Always hidden unless explicitly shown via JS */
 }
 
 .details-container {
-    padding: 1.5rem;
+    padding: 1rem; /* Adjusted padding for mobile */
     flex: 1;
     background: white;
     border-radius: 2rem;
-    border: rgb(53, 53, 53) 0.1rem solid;
-    border-color: rgb(163, 163, 163);
+    border: rgb(163, 163, 163) 0.1rem solid;
     text-align: center;
+    margin-bottom: 0.75rem; /* Adjusted for mobile */
 }
 
 .section-container {
-    gap: 4rem;
-    height: 80%;    
+    gap: 2rem; /* Reduced gap for mobile */
+    height: auto; /* Allow height to adjust */
 }
 
-.section-pic-container {
-    height: 400px;
-    width: 400px;
-    margin: auto 0;
-}
-
-/*EXPERIENCE SECTION*/
-
+/* EXPERIENCE SECTION */
 #experience {
     position: relative;
+    padding-bottom: 2vh;
 }
 
 .experience-sub-title {
     color: rgb(85, 85, 85);
     font-weight: 600;
-    font-size: 1.75rem;
-    margin-bottom: 2rem;
+    font-size: 1.5rem; /* Adjusted for mobile */
+    margin-bottom: 1.5rem;
 }
 
 .experience-details-container {
     display: flex;
     justify-content: center;
-    flex-direction: column;      
+    flex-direction: column; /* Always column for mobile-first */
+    width: 100%;
+    gap: 1.5rem; /* Reduced gap for mobile */
+}
+.experience-details-container > div {
+    padding: 1rem; /* Adjusted padding for mobile */
+    border: rgb(163, 163, 163) 0.1rem solid;
+    border-radius: 2rem;
 }
 
 .article-container {
     display: flex;
-    /* text-align: initial; Remove as it's not a flex item's property for content alignment */
     flex-wrap: wrap;
     flex-direction: row;
-    gap: 2.5rem; /* Gap between individual skill articles */
-    justify-content: center; /* Center the entire block of skills */
-    align-items: flex-start; /* Align all rows to the top. Can also try 'center' or 'stretch' */
+    gap: 1.5rem; /* Reduced gap for mobile */
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 0.5rem;
 }
 
-/* Specific styling for skill articles to ensure uniformity */
 article {
     display: flex;
-    align-items: center; /* THIS IS KEY for vertical alignment of icon and text */
-    justify-content: flex-start; /* Aligns content to the start horizontally */
-    gap: 0.75rem; /* Space between checkmark icon and the text */
-    width: 10rem; /* Keep existing width for each skill item */
-    /* Optional: To ensure all skill items have roughly the same height,
-       you might set a min-height here based on your longest text + icon combination */
-    /* min-height: 4.5rem; */ /* Example: adjust this value if needed */
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem; /* Reduced gap for mobile */
+    width: 8rem; /* Adjusted width for mobile */
 }
 
-/* Adjustments for the checkmark icon within skill articles */
 article .icon {
     cursor: default;
-    width: 1.5rem; /* Adjust size as needed to match the screenshot or desired look */
-    height: 1.5rem; /* Keep aspect ratio */
-    flex-shrink: 0; /* Prevent the icon from shrinking */
+    width: 1.25rem; /* Adjusted size for mobile */
+    height: 1.25rem; /* Adjusted size for mobile */
+    flex-shrink: 0;
 }
 
-/* Styles for the div containing the skill name and experience level */
-article > div { /* Targets the div directly inside each article */
+article > div {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Vertically centers h3 and p within this div */
-    flex-grow: 1; /* Allows this div to take up available space, pushing content */
-    text-align: left; /* Ensure text aligns left within its container */
+    justify-content: center;
+    flex-grow: 1;
+    text-align: left;
 }
 
 article h3,
 article p {
-    margin: 0; /* Remove default margins from h3 and p to prevent misalignment */
-    line-height: 1.2; /* Ensure consistent line height for text */
+    margin: 0;
+    line-height: 1.2;
+    font-size: 0.9rem; /* Adjusted for mobile */
 }
 
 
-/*Project Section*/
-
+/* Project Section */
 #projects {
     position: relative;
+    padding-bottom: 2vh;
 }
 
 .color-container {
@@ -355,12 +407,20 @@ article p {
 .project-img {
     border-radius: 2rem;
     width: 90%;
-    height: 90%;
+    height: auto; /* Ensure aspect ratio is maintained */
+    max-width: 280px; /* Adjusted for mobile */
+    object-fit: cover;
+    margin-bottom: 0.75rem;
 }
 
 .project-title {
-    margin: 1rem;
+    margin: 0.75rem; /* Adjusted for mobile */
     color: black;
+    font-size: 1.25rem; /* Adjusted for mobile */
+}
+.project-description p { /* Added description for projects */
+    font-size: 0.9rem;
+    padding: 0 0.5rem;
 }
 
 .project-btn {
@@ -368,50 +428,66 @@ article p {
     border-color: rgb(163, 163, 163);
 }
 
-/*contact*/
-
+/* CONTACT SECTION */
 #contact {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    height: 70vh;
+    height: auto; /* Allow height to adjust for content */
+    padding-bottom: 4vh;
 }
 
 .contact-info-upper-container {
     display: flex;
     justify-content: center;
+    flex-direction: column; /* Always column for mobile-first */
     border-radius: 2rem;
-    border: rgb(53, 53, 53) 0.1rem solid;
-    border-color: rgb(163, 163, 163);
+    border: rgb(163, 163, 163) 0.1rem solid;
     background: rgb(250, 250, 250);
-    margin: 2rem auto;
+    margin: 1.5rem auto; /* Adjusted margin for mobile */
     padding: 0.5rem;
+    width: 90%;
+    max-width: 350px; /* Adjusted for mobile */
 }
 
 .contact-info-container {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column; /* Always column for mobile-first */
     gap: 0.5rem;
-    margin: 1rem;
+    margin: 0.75rem; /* Adjusted for mobile */
 }
 
 .contact-info-container p {
-    font-size: larger;
+    font-size: 1rem; /* Adjusted for mobile */
 }
 
 .contact-icon {
     cursor: default;
+    height: 1.75rem; /* Adjusted for mobile */
 }
 
 .email-icon {
-    height: 2.5rem;
+    height: 2rem; /* Adjusted for mobile */
 }
 
+/* FOOTER */
 footer {
-    height: 26vh;
-    margin: 0 1rem;
+    height: auto; /* Allow height to adjust */
+    margin: 0 0.5rem; /* Reduced margin for mobile */
+    padding: 1rem 0; /* Adjusted padding */
+    font-size: 0.8rem; /* Adjusted font size for mobile */
 }
 footer p {
     text-align: center;
+}
+footer .nav-links-container {
+    margin-bottom: 0.75rem;
+}
+footer .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 1rem; /* Adjusted for mobile */
+    gap: 0.75rem; /* Reduced gap for mobile */
 }
