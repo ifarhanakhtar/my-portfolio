@@ -278,18 +278,61 @@ section {
     position: relative;
 }
 
-.experience-sub-title {
-    color: rgb(85, 85, 85);
-    font-weight: 600;
-    font-size: 1.75rem;
-    margin-bottom: 2rem;
-}
-
 .experience-details-container {
     display: flex;
     justify-content: center;
     flex-direction: column;       
 }
+
+/* New: Styling for individual experience cards */
+.experience-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes button to bottom */
+    width: 100%; /* Occupy full width within its flex container */
+    max-width: 450px; /* Limit max width for larger screens */
+    margin-bottom: 2rem; /* Spacing between cards */
+    padding: 1.5rem;
+}
+
+.experience-card .experience-sub-title {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.experience-content {
+    overflow: hidden;
+    transition: max-height 0.7s ease-in-out; /* Smooth transition for expand/collapse */
+}
+
+.experience-content.collapsed {
+    max-height: 4.5em; /* Adjust to show 2-3 lines of text initially */
+    position: relative;
+}
+
+.experience-content.collapsed::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3em; /* Height of the fade-out effect */
+    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(250,250,250, 0.9)); /* Fade to card background */
+    pointer-events: none; /* Allows clicks on content below */
+}
+
+.experience-content.expanded {
+    max-height: 500px; /* Sufficiently large to show all content, adjust if needed */
+    /* Remove fade effect when expanded */
+}
+
+.read-more-btn {
+    margin-top: 1rem;
+    width: auto; /* Allow button to size naturally */
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+}
+
 
 .article-container {
     display: flex;
@@ -298,6 +341,7 @@ section {
     gap: 2.5rem; /* Gap between individual skill articles */
     justify-content: center; /* Center the entire block of skills */
     align-items: flex-start; /* Align all rows to the top. Can also try 'center' or 'stretch' */
+    margin-top: 1rem; /* Space below title */
 }
 
 /* Specific styling for skill articles to ensure uniformity */
