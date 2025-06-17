@@ -7,52 +7,49 @@
     box-sizing: border-box; /* Global box-sizing for consistent layout */
 }
 
-/* In your style.css file */
-
-body {
-    /* ... other styles ... */
-
-    /* Remove or comment out these lines: */
-    /* transform: scale(0.9); */
-    /* transform-origin: top left; */
-    /* width: 111.11%; */
-    /* height: 111.11%; */
-}
-
-
+/* Base HTML font size adjusted for 0.9 scaling */
 html {
     scroll-behavior: smooth;
+    font-size: 14.4px; /* Default 16px * 0.9 = 14.4px */
+}
+
+body {
+    /* REMOVED: transform: scale(0.9); */
+    /* REMOVED: transform-origin: top left; */
+    /* REMOVED: width: 111.11%; */
+    /* REMOVED: height: 111.11%; */
+    /* Add any other body styles here if you had them */
 }
 
 /* Typography */
 p {
     color: rgb(85, 85, 85);
-    margin-bottom: 1rem; /* Consistent paragraph spacing */
+    margin-bottom: 0.9rem; /* 1rem * 0.9 */
 }
 
 h1, h2, h3, h4 {
     margin-top: 0;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.45rem; /* 0.5rem * 0.9 */
     color: #222;
-    line-height: 1.2; /* Better line spacing for headings */
+    line-height: 1.2;
 }
 
 .title {
-    font-size: 3rem;
+    font-size: 2.7rem; /* 3rem * 0.9 */
     text-align: center;
-    margin-bottom: 2.5rem; /* Increased spacing below titles */
+    margin-bottom: 2.25rem; /* 2.5rem * 0.9 */
 }
 
 .section-text-p1 {
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 0.99rem; /* 1.1rem * 0.9 */
     color: #555;
-    margin-bottom: 0.5rem; /* Closer to title */
+    margin-bottom: 0.45rem; /* 0.5rem * 0.9 */
 }
 
 .section-text-p2 {
-    font-size: 1.75rem;
-    margin-bottom: 2rem; /* More space below descriptive text */
+    font-size: 1.575rem; /* 1.75rem * 0.9 */
+    margin-bottom: 1.8rem; /* 2rem * 0.9 */
     color: #333;
 }
 
@@ -66,21 +63,21 @@ a {
 a:hover {
     color: grey;
     text-decoration: underline;
-    text-underline-offset: 0.8rem;
+    text-underline-offset: 0.72rem; /* 0.8rem * 0.9 */
     text-decoration-color: rgb(181, 181, 181);
 }
 
 .btn-container {
     display: flex;
     justify-content: center;
-    gap: 1rem;
-    margin-top: 1.5rem;
+    gap: 0.9rem; /* 1rem * 0.9 */
+    margin-top: 1.35rem; /* 1.5rem * 0.9 */
 }
 
 .btn {
     font-weight: 600;
-    padding: 0.8rem 1.5rem;
-    border-radius: 2rem;
+    padding: 0.72rem 1.35rem; /* 0.8rem * 0.9, 1.5rem * 0.9 */
+    border-radius: 1.8rem; /* 2rem * 0.9 */
     cursor: pointer;
     transition: all 300ms ease;
     border: 1px solid rgb(53, 53, 53);
@@ -99,7 +96,7 @@ a:hover {
 }
 
 .btn:hover {
-    opacity: 0.9; /* Subtle hover effect */
+    opacity: 0.9;
 }
 
 .btn-color-1:hover {
@@ -117,12 +114,12 @@ nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 10vh; /* Consistent height */
-    padding: 0 5%;
+    height: 9vh; /* 10vh * 0.9 */
+    padding: 0 4.5%; /* 5% * 0.9 */
 }
 
 .logo {
-    font-size: 2rem;
+    font-size: 1.8rem; /* 2rem * 0.9 */
     font-weight: 600;
     color: #222;
 }
@@ -133,8 +130,8 @@ nav {
 .nav-links {
     display: flex;
     list-style: none;
-    font-size: 1.1rem;
-    gap: 2rem;
+    font-size: 0.99rem; /* 1.1rem * 0.9 */
+    gap: 1.8rem; /* 2rem * 0.9 */
 }
 
 /* Hamburger Menu (Mobile Navigation) */
@@ -151,14 +148,14 @@ nav {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 24px;
-    width: 30px;
+    height: 21.6px; /* 24px * 0.9 */
+    width: 27px; /* 30px * 0.9 */
     cursor: pointer;
 }
 
 .hamburger-icon span {
     width: 100%;
-    height: 2px;
+    height: 1.8px; /* 2px * 0.9 */
     background-color: black;
     transition: all 0.3s ease-in-out;
 }
@@ -173,8 +170,8 @@ nav {
     overflow: hidden;
     transition: all 0.3s ease-in-out;
     z-index: 10;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 0.45rem; /* 0.5rem * 0.9 */
+    box-shadow: 0 3.6px 7.2px rgba(0,0,0,0.1); /* 0 4px 8px * 0.9 */
 }
 
 .menu-links ul {
@@ -185,9 +182,9 @@ nav {
 
 .menu-links a {
     display: block;
-    padding: 10px 20px;
+    padding: 9px 18px; /* 10px * 0.9, 20px * 0.9 */
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.08rem; /* 1.2rem * 0.9 */
     color: black;
     text-decoration: none;
     transition: all 0.3s ease-in-out;
@@ -198,49 +195,49 @@ nav {
 }
 
 .menu-links.open {
-    max-height: 300px;
+    max-height: 270px; /* 300px * 0.9 */
 }
 
 .hamburger-icon.open span:first-child {
-    transform: rotate(45deg) translate(10px, 5px);
+    transform: rotate(45deg) translate(9px, 4.5px); /* 10px * 0.9, 5px * 0.9 */
 }
 .hamburger-icon.open span:nth-child(2) {
     opacity: 0;
 }
 .hamburger-icon.open span:last-child {
-    transform: rotate(-45deg) translate(10px, -5px);
+    transform: rotate(-45deg) translate(9px, -4.5px); /* 10px * 0.9, -5px * 0.9 */
 }
 
 /* Sections General */
 section {
-    padding: 10vh 8rem; /* Adjusted horizontal padding for more content space */
+    padding: 9vh 7.2rem; /* 10vh * 0.9, 8rem * 0.9 */
     min-height: fit-content;
     position: relative;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center content horizontally within section */
+    align-items: center;
     justify-content: center;
 }
 
 .section-container {
     display: flex;
-    flex-wrap: wrap; /* Allow wrapping of internal components */
-    gap: 4rem;
+    flex-wrap: wrap;
+    gap: 3.6rem; /* 4rem * 0.9 */
     align-items: center;
-    justify-content: center; /* Center components within the container */
+    justify-content: center;
     width: 100%;
-    max-width: 1200px; /* Standardized max width for main content areas */
-    margin: 0 auto; /* Center the container itself */
+    max-width: 1080px; /* 1200px * 0.9 */
+    margin: 0 auto;
 }
 
 .section-pic-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 2rem;
+    border-radius: 1.8rem; /* 2rem * 0.9 */
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 3.6px 13.5px rgba(0,0,0,0.1); /* 0 4px 15px * 0.9 */
     flex-shrink: 0;
 }
 
@@ -252,107 +249,107 @@ section {
 
 .icon {
     cursor: pointer;
-    height: 2rem;
+    height: 1.8rem; /* 2rem * 0.9 */
     width: auto;
     vertical-align: middle;
 }
 
 /* Profile Section */
 #profile {
-    flex-direction: row; /* Default to row on desktop */
-    gap: 5rem;
-    min-height: 90vh; /* Increased min-height for better vertical centering */
-    padding-top: 10vh; /* Adjust based on nav height */
+    flex-direction: row;
+    gap: 4.5rem; /* 5rem * 0.9 */
+    min-height: 81vh; /* 90vh * 0.9 */
+    padding-top: 9vh; /* 10vh * 0.9 */
 }
 
 #profile .section-pic-container {
-    height: 350px;
-    width: 350px;
+    height: 315px; /* 350px * 0.9 */
+    width: 315px; /* 350px * 0.9 */
 }
 
 .section-text {
     text-align: center;
-    max-width: 600px;
+    max-width: 540px; /* 600px * 0.9 */
 }
 
 #socials-container {
     display: flex;
     justify-content: center;
-    margin-top: 2rem;
-    gap: 1rem;
+    margin-top: 1.8rem; /* 2rem * 0.9 */
+    gap: 0.9rem; /* 1rem * 0.9 */
 }
 
 /* About Section */
 #about {
-    padding-top: 10vh;
+    padding-top: 9vh; /* 10vh * 0.9 */
 }
 
 #about .section-container {
-    flex-direction: row; /* Ensure image and text are side by side */
-    align-items: flex-start; /* Align items to the top for consistent layout */
+    flex-direction: row;
+    align-items: flex-start;
     justify-content: center;
-    gap: 4rem; /* Standardized gap */
+    gap: 3.6rem; /* 4rem * 0.9 */
 }
 
 #about .section-pic-container {
-    width: 350px;
-    height: 350px;
+    width: 315px; /* 350px * 0.9 */
+    height: 315px; /* 350px * 0.9 */
     margin: 0;
 }
 
 .about-details-container {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Align content to the top */
+    justify-content: flex-start;
     flex: 1;
-    min-width: 300px;
+    min-width: 270px; /* 300px * 0.9 */
 }
 
-.about-container { /* This refers to the container for experience/education boxes */
+.about-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 2rem;
-    margin-bottom: 2rem; /* Space below these boxes */
+    gap: 1.8rem; /* 2rem * 0.9 */
+    margin-bottom: 1.8rem; /* 2rem * 0.9 */
 }
 
 .details-container {
-    padding: 1.5rem;
+    padding: 1.35rem; /* 1.5rem * 0.9 */
     flex: 1;
-    min-width: 250px;
-    max-width: 350px; /* Max width to prevent them from becoming too wide */
+    min-width: 225px; /* 250px * 0.9 */
+    max-width: 315px; /* 350px * 0.9 */
     background: white;
-    border-radius: 2rem;
+    border-radius: 1.8rem; /* 2rem * 0.9 */
     border: 1px solid rgb(163, 163, 163);
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 3.6px 9px rgba(0,0,0,0.05); /* 0 4px 10px * 0.9 */
 }
 
 .details-container h3 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.45rem; /* 0.5rem * 0.9 */
     color: #333;
-    font-size: 1.2rem;
+    font-size: 1.08rem; /* 1.2rem * 0.9 */
 }
 .details-container p {
-    font-size: 1rem;
+    font-size: 0.9rem; /* 1rem * 0.9 */
     color: rgb(85, 85, 85);
-    margin-bottom: 0; /* Remove default paragraph margin */
+    margin-bottom: 0;
 }
 
 .text-container p {
-    font-size: 1rem;
+    font-size: 0.9rem; /* 1rem * 0.9 */
     line-height: 1.7;
     color: rgb(85, 85, 85);
-    text-align: justify; /* Justify text for a cleaner block */
-    margin-bottom: 0; /* Remove default paragraph margin */
+    text-align: justify;
+    margin-bottom: 0;
 }
 
 .arrow {
     position: ;
     right: 50%;
     transform: translateX(50%);
-    bottom: 2rem; /* Adjusted for better visibility */
-    width: 3rem;
+    bottom: 1.8rem; /* 2rem * 0.9 */
+    width: 2.7rem; /* 3rem * 0.9 */
     height: auto;
     opacity: 0.7;
     transition: opacity 0.3s ease;
@@ -361,211 +358,199 @@ section {
     opacity: 1;
 }
 
-
 /* Experience Section */
 #experience {
-    padding-top: 10vh; /* Consistent top padding */
-    padding-bottom: 10vh; /* Consistent bottom padding */
+    padding-top: 9vh; /* 10vh * 0.9 */
+    padding-bottom: 9vh; /* 10vh * 0.9 */
 }
 
 .experience-details-container {
     display: flex;
     justify-content: center;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1080px; /* 1200px * 0.9 */
     margin: 0 auto;
 }
 
-#experience .about-container { /* This is the container for the 3 cards (Work, Programming, Tools) */
+#experience .about-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2rem; /* Consistent gap between cards */
+    gap: 1.8rem; /* 2rem * 0.9 */
     width: 100%;
     margin-bottom: 0;
     margin-top: 0;
-    align-items: stretch; /* Make all cards the same height for clean rows */
+    align-items: stretch;
 }
 
 .experience-card {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Push content to top, button to bottom */
-    /* flex-basis for 3 columns with 2rem gap */
-    flex: 1 1 calc(33.333% - 1.333rem); /* Updated for precision: (2rem * 2 / 3) = 1.333rem */
-    min-width: 280px;
-    max-width: 400px;
-    padding: 1.8rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    justify-content: space-between;
+    flex: 1 1 calc(33.333% - 1.2rem); /* (1.333rem * 0.9) approx 1.2rem */
+    min-width: 252px; /* 280px * 0.9 */
+    max-width: 360px; /* 400px * 0.9 */
+    padding: 1.62rem; /* 1.8rem * 0.9 */
+    box-shadow: 0 3.6px 10.8px rgba(0,0,0,0.08); /* 0 4px 12px * 0.9 */
     border: 1px solid rgb(163, 163, 163);
     background: rgb(250, 250, 250);
-    border-radius: 2rem; /* Consistent with other cards */
+    border-radius: 1.8rem; /* 2rem * 0.9 */
     text-align: center;
 }
 
-.experience-card h2.project-title { /* Targeting the specific H2 for consistency */
-    font-size: 1.5rem;
-    margin-bottom: 1.2rem; /* More space below heading */
+.experience-card h2.project-title {
+    font-size: 1.35rem; /* 1.5rem * 0.9 */
+    margin-bottom: 1.08rem; /* 1.2rem * 0.9 */
     color: #222;
 }
 
-/* Work Experience specific styling (no collapsed/expanded states) */
 .experience-content {
-    text-align: left; /* Ensure text is left-aligned */
-    flex-grow: 1; /* Allow content to grow and fill space */
+    text-align: left;
+    flex-grow: 1;
     display: flex;
-    flex-direction: column; /* Stack children vertically */
-    justify-content: flex-start; /* Align content to the top */
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
-.experience-content h3 { /* For Executive - Operations title */
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+.experience-content h3 {
+    font-size: 1.08rem; /* 1.2rem * 0.9 */
+    margin-bottom: 0.45rem; /* 0.5rem * 0.9 */
     color: #333;
 }
-.experience-content p { /* For date range under experience */
-    font-size: 0.95rem;
+.experience-content p {
+    font-size: 0.855rem; /* 0.95rem * 0.9 */
     color: rgb(85, 85, 85);
-    margin-bottom: 1rem;
+    margin-bottom: 0.9rem; /* 1rem * 0.9 */
 }
 
-/* The div that contained the collapsible content, now always visible */
 .experience-description {
-    text-align: left; /* Ensure text is left-aligned */
-    /* No max-height, overflow-hidden, or ::after for 'Read More' */
-    margin-bottom: 0; /* Remove default paragraph margin */
+    text-align: left;
+    margin-bottom: 0;
 }
 
 .experience-description ul {
     list-style-type: disc;
-    padding-left: 20px;
+    padding-left: 18px; /* 20px * 0.9 */
     margin-bottom: 0;
 }
 .experience-description li {
-    font-size: 0.95rem;
+    font-size: 0.855rem; /* 0.95rem * 0.9 */
     color: rgb(85, 85, 85);
-    margin-bottom: 0.5rem; /* Space between list items */
+    margin-bottom: 0.45rem; /* 0.5rem * 0.9 */
 }
-
-/* No .read-more-btn specific styles needed anymore */
-
 
 /* Programming Languages & Tools (Grid Layout) */
 .experience-card .article-container {
     display: grid;
-    /* Adjusted minmax to aim for two columns that fill space well without too much blank space */
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Increased min-width for wider items */
-    gap: 1rem; /* Consistent gap for grid items */
-    justify-items: start; /* Align items to the start of their grid cell */
+    grid-template-columns: repeat(auto-fit, minmax(144px, 1fr)); /* 160px * 0.9 */
+    gap: 0.9rem; /* 1rem * 0.9 */
+    justify-items: start;
     align-items: start;
-    margin-top: 1rem;
-    padding: 0 0.2rem;
+    margin-top: 0.9rem; /* 1rem * 0.9 */
+    padding: 0 0.18rem; /* 0.2rem * 0.9 */
     width: 100%;
-    flex-grow: 1; /* Allow the grid to take up available vertical space */
-    align-content: start; /* Align content to the top within the grid */
+    flex-grow: 1;
+    align-content: start;
 }
 
 .experience-card article {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.54rem; /* 0.6rem * 0.9 */
     width: 100%;
-    padding: 0.3rem 0;
+    padding: 0.27rem 0; /* 0.3rem * 0.9 */
     box-sizing: border-box;
     text-align: left;
 }
 
 .experience-card article .icon {
-    width: 1.1rem;
-    height: 1.1rem;
+    width: 0.99rem; /* 1.1rem * 0.9 */
+    height: 0.99rem; /* 1.1rem * 0.9 */
     flex-shrink: 0;
-    margin-top: 0.1rem;
+    margin-top: 0.09rem; /* 0.1rem * 0.9 */
 }
 
-.experience-card article h3 { /* Changed from h4 to h3 to match your HTML */
+.experience-card article h3 {
     margin: 0;
     line-height: 1.2;
-    font-size: 1rem;
+    font-size: 0.9rem; /* 1rem * 0.9 */
     color: #333;
 }
 .experience-card article p {
     margin: 0;
     line-height: 1.2;
-    font-size: 0.85rem;
+    font-size: 0.765rem; /* 0.85rem * 0.9 */
     color: rgb(85, 85, 85);
 }
-
 
 /* Project Section */
 #projects {
-    padding-top: 10vh;
-    padding-bottom: 10vh;
+    padding-top: 9vh; /* 10vh * 0.9 */
+    padding-bottom: 9vh; /* 10vh * 0.9 */
 }
 
-#projects .about-container { /* This is the container for the 3 project cards */
+#projects .about-container {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2rem;
+    gap: 1.8rem; /* 2rem * 0.9 */
     width: 100%;
-    max-width: 1200px;
-    align-items: stretch; /* Make all project cards the same height */
+    max-width: 1080px; /* 1200px * 0.9 */
+    align-items: stretch;
 }
 
-#projects .details-container { /* Styling for individual project cards */
-    /* flex-basis for 3 columns with 2rem gap */
-    flex: 1 1 calc(33.333% - 1.333rem);
-    min-width: 280px;
-    max-width: 400px;
-    padding: 1.5rem;
+#projects .details-container {
+    flex: 1 1 calc(33.333% - 1.2rem); /* Same as experience-card */
+    min-width: 252px; /* 280px * 0.9 */
+    max-width: 360px; /* 400px * 0.9 */
+    padding: 1.35rem; /* 1.5rem * 0.9 */
     background: rgb(250, 250, 250);
     border: 1px solid rgb(163, 163, 163);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    border-radius: 2rem; /* Consistent with other cards */
+    box-shadow: 0 3.6px 10.8px rgba(0,0,0,0.08); /* 0 4px 12px * 0.9 */
+    border-radius: 1.8rem; /* 2rem * 0.9 */
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Push image/description to top, buttons to bottom */
-    text-align: center; /* Center image and title by default */
+    justify-content: space-between;
+    text-align: center;
 }
 
 .project-img {
-    border-radius: 1rem;
+    border-radius: 0.9rem; /* 1rem * 0.9 */
     width: 100%;
-    height: 200px; /* Fixed height for project images for uniformity */
-    object-fit: cover; /* Ensures image covers area, may crop */
-    margin-bottom: 1rem;
-    display: block; /* Remove extra space below image */
+    height: 180px; /* 200px * 0.9 */
+    object-fit: cover;
+    margin-bottom: 0.9rem; /* 1rem * 0.9 */
+    display: block;
 }
 
-#projects .experience-sub-title.project-title { /* Targeting the specific H2 for consistency */
-    font-size: 1.4rem;
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
+#projects .experience-sub-title.project-title {
+    font-size: 1.26rem; /* 1.4rem * 0.9 */
+    margin-top: 0.45rem; /* 0.5rem * 0.9 */
+    margin-bottom: 0.9rem; /* 1rem * 0.9 */
     color: #222;
-    text-align: center; /* Ensure project titles are centered */
+    text-align: center;
 }
 
 .project-description {
-    font-size: 0.95rem;
+    font-size: 0.855rem; /* 0.95rem * 0.9 */
     color: rgb(85, 85, 85);
-    text-align: left; /* Project descriptions should be left-aligned */
-    margin-bottom: 1.5rem;
-    flex-grow: 1; /* Allow description to take available vertical space */
+    text-align: left;
+    margin-bottom: 1.35rem; /* 1.5rem * 0.9 */
+    flex-grow: 1;
 }
 .project-description p {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.45rem; /* 0.5rem * 0.9 */
 }
 
-#projects .btn-container { /* Specific to project card buttons */
-    margin-top: auto; /* Push buttons to the bottom of the card */
-    padding-top: 0; /* Remove potential extra padding from auto-margin */
+#projects .btn-container {
+    margin-top: auto;
+    padding-top: 0;
 }
-
 
 /* Contact Section */
 #contact {
-    padding-top: 10vh;
-    padding-bottom: 10vh;
-    min-height: 50vh;
+    padding-top: 9vh; /* 10vh * 0.9 */
+    padding-bottom: 9vh; /* 10vh * 0.9 */
+    min-height: 45vh; /* 50vh * 0.9 */
     justify-content: center;
 }
 
@@ -573,25 +558,25 @@ section {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2rem;
+    gap: 1.8rem; /* 2rem * 0.9 */
     width: 100%;
-    max-width: 700px;
-    margin: 2rem auto;
-    padding: 1.5rem;
-    border-radius: 2rem;
+    max-width: 630px; /* 700px * 0.9 */
+    margin: 1.8rem auto; /* 2rem * 0.9 */
+    padding: 1.35rem; /* 1.5rem * 0.9 */
+    border-radius: 1.8rem; /* 2rem * 0.9 */
     border: 1px solid rgb(163, 163, 163);
     background: rgb(250, 250, 250);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 3.6px 9px rgba(0,0,0,0.05); /* 0 4px 10px * 0.9 */
 }
 
 .contact-info-container {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.675rem; /* 0.75rem * 0.9 */
 }
 
 .contact-info-container p {
-    font-size: 1.1rem;
+    font-size: 0.99rem; /* 1.1rem * 0.9 */
     margin-bottom: 0;
 }
 
@@ -600,18 +585,18 @@ section {
 }
 
 .contact-icon {
-    width: 1.8rem;
-    height: 1.8rem;
+    width: 1.62rem; /* 1.8rem * 0.9 */
+    height: 1.62rem; /* 1.8rem * 0.9 */
 }
 
 .email-icon {
-    width: 2rem;
-    height: 2rem;
+    width: 1.8rem; /* 2rem * 0.9 */
+    height: 1.8rem; /* 2rem * 0.9 */
 }
 
 /* Footer */
 footer {
-    padding: 2rem 1rem;
+    padding: 1.8rem 0.9rem; /* 2rem * 0.9, 1rem * 0.9 */
     text-align: center;
     background-color: #f0f0f0;
     border-top: 1px solid #e0e0e0;
@@ -619,7 +604,7 @@ footer {
 
 footer nav {
     height: auto;
-    margin-bottom: 1rem;
+    margin-bottom: 0.9rem; /* 1rem * 0.9 */
 }
 
 footer .nav-links {
@@ -627,109 +612,107 @@ footer .nav-links {
 }
 
 footer p {
-    font-size: 0.9rem;
+    font-size: 0.81rem; /* 0.9rem * 0.9 */
     color: #666;
     margin-bottom: 0;
 }
 
-/* --- Media Queries for Responsiveness --- */
+/* --- Media Queries for Responsiveness (Breakpoints scaled by 0.9) --- */
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1260px) { /* 1400px * 0.9 = 1260px */
     /* General section padding adjustment */
     section {
-        padding-left: 5rem;
-        padding-right: 5rem;
+        padding-left: 4.5rem; /* 5rem * 0.9 */
+        padding-right: 4.5rem; /* 5rem * 0.9 */
     }
 
     /* Profile Section */
     #profile {
         flex-direction: column;
         text-align: center;
-        gap: 2rem;
-        min-height: auto; /* Allow height to adjust */
-        padding-top: 8vh; /* Adjusted for smaller screens */
-        padding-bottom: 8vh;
+        gap: 1.8rem; /* 2rem * 0.9 */
+        min-height: auto;
+        padding-top: 7.2vh; /* 8vh * 0.9 */
+        padding-bottom: 7.2vh; /* 8vh * 0.9 */
     }
     #profile .section-pic-container {
-        width: 280px;
-        height: 280px;
+        width: 252px; /* 280px * 0.9 */
+        height: 252px; /* 280px * 0.9 */
     }
     .section-text-p2 {
-        font-size: 1.5rem;
+        font-size: 1.35rem; /* 1.5rem * 0.9 */
     }
     .title {
-        font-size: 2.5rem;
+        font-size: 2.25rem; /* 2.5rem * 0.9 */
     }
 
     /* About Section */
     #about .section-container {
-        flex-direction: column; /* Stack image and text */
-        gap: 2rem; /* Increased gap slightly */
-        align-items: center; /* Center everything when stacked */
+        flex-direction: column;
+        gap: 1.8rem; /* 2rem * 0.9 */
+        align-items: center;
     }
     #about .section-pic-container {
-        width: 280px;
-        height: 280px;
+        width: 252px; /* 280px * 0.9 */
+        height: 252px; /* 280px * 0.9 */
     }
     .about-container {
-        flex-direction: column; /* Stack experience/education boxes */
-        gap: 1.5rem;
+        flex-direction: column;
+        gap: 1.35rem; /* 1.5rem * 0.9 */
     }
     .details-container {
-        max-width: 400px;
+        max-width: 360px; /* 400px * 0.9 */
     }
     .text-container p {
-        text-align: left; /* Revert to left-align for small screens if justify looks bad */
+        text-align: left;
     }
-
 
     /* Experience Section (Cards) */
     #experience .about-container {
         flex-direction: column;
         align-items: center;
-        gap: 1.5rem;
+        gap: 1.35rem; /* 1.5rem * 0.9 */
     }
     .experience-card {
-        flex: unset; /* Remove flex-basis when stacked */
-        width: 90%;
-        max-width: 600px;
-        padding: 1.5rem;
+        flex: unset;
+        width: 90%; /* Keeping percentage as is, max-width will handle */
+        max-width: 540px; /* 600px * 0.9 */
+        padding: 1.35rem; /* 1.5rem * 0.9 */
     }
 
     /* Skill Grid inside cards */
     .experience-card .article-container {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Adapt min width */
-        gap: 0.8rem 0.5rem; /* Adjusted gaps */
-        justify-items: center; /* Center items for better fill on smaller screens */
+        grid-template-columns: repeat(auto-fit, minmax(126px, 1fr)); /* 140px * 0.9 */
+        gap: 0.72rem 0.45rem; /* 0.8rem * 0.9, 0.5rem * 0.9 */
+        justify-items: center;
     }
-    .experience-card article h3 { /* Changed from h4 to h3 to match your HTML */
-        font-size: 0.95rem;
+    .experience-card article h3 {
+        font-size: 0.855rem; /* 0.95rem * 0.9 */
     }
     .experience-card article p {
-        font-size: 0.8rem;
+        font-size: 0.72rem; /* 0.8rem * 0.9 */
     }
     .experience-card article {
-        justify-content: center; /* Center content within each skill item */
+        justify-content: center;
     }
     .experience-card article > div {
-        text-align: center; /* Center text within skill item */
+        text-align: center;
     }
-
 
     /* Project Cards */
     #projects .about-container {
         flex-direction: column;
         align-items: center;
-        gap: 1.5rem;
+        gap: 1.35rem; /* 1.5rem * 0.9 */
     }
     #projects .details-container {
         flex: unset;
-        width: 90%;
-        max-width: 600px;
+        width: 90%; /* Keeping percentage as is, max-width will handle */
+        max-width: 540px; /* 600px * 0.9 */
     }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1080px) { /* 1200px * 0.9 = 1080px */
     #desktop-nav {
         display: none;
     }
@@ -738,74 +721,74 @@ footer p {
     }
     /* General section padding for smaller screens */
     section {
-        padding-left: 2rem;
-        padding-right: 2rem;
-        padding-top: 8vh; /* Reduced top/bottom padding */
-        padding-bottom: 8vh;
+        padding-left: 1.8rem; /* 2rem * 0.9 */
+        padding-right: 1.8rem; /* 2rem * 0.9 */
+        padding-top: 7.2vh; /* 8vh * 0.9 */
+        padding-bottom: 7.2vh; /* 8vh * 0.9 */
     }
 
     .section-pic-container {
-        width: 250px;
-        height: 250px;
+        width: 225px; /* 250px * 0.9 */
+        height: 225px; /* 250px * 0.9 */
     }
     .title {
-        font-size: 2.2rem;
+        font-size: 1.98rem; /* 2.2rem * 0.9 */
     }
     .section-text-p2 {
-        font-size: 1.3rem;
+        font-size: 1.17rem; /* 1.3rem * 0.9 */
     }
     .btn {
-        padding: 0.6rem 1.2rem;
+        padding: 0.54rem 1.08rem; /* 0.6rem * 0.9, 1.2rem * 0.9 */
     }
 
     /* Skill Grid inside cards (smaller view) */
     .experience-card .article-container {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Further adapt min width */
-        gap: 0.5rem 0.3rem;
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); /* 100px * 0.9 */
+        gap: 0.45rem 0.27rem; /* 0.5rem * 0.9, 0.3rem * 0.9 */
     }
-    .experience-card article h3 { /* Changed from h4 to h3 to match your HTML */
-        font-size: 0.9rem;
+    .experience-card article h3 {
+        font-size: 0.81rem; /* 0.9rem * 0.9 */
     }
     .experience-card article p {
-        font-size: 0.75rem;
+        font-size: 0.675rem; /* 0.75rem * 0.9 */
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 691px) { /* 768px * 0.9 = 691.2px */
     nav {
-        height: 10vh;
+        height: 9vh; /* Keeping consistent with desktop nav height */
     }
     .logo {
-        font-size: 1.8rem;
+        font-size: 1.62rem; /* 1.8rem * 0.9 */
     }
     .hamburger-icon {
-        width: 25px;
-        height: 20px;
+        width: 22.5px; /* 25px * 0.9 */
+        height: 18px; /* 20px * 0.9 */
     }
 
     section {
-        padding-left: 1rem;
-        padding-right: 1rem;
-        padding-top: 6vh; /* Reduced top/bottom padding for mobile */
-        padding-bottom: 6vh;
+        padding-left: 0.9rem; /* 1rem * 0.9 */
+        padding-right: 0.9rem; /* 1rem * 0.9 */
+        padding-top: 5.4vh; /* 6vh * 0.9 */
+        padding-bottom: 5.4vh; /* 6vh * 0.9 */
     }
     .section-pic-container {
-        width: 200px;
-        height: 200px;
+        width: 180px; /* 200px * 0.9 */
+        height: 180px; /* 200px * 0.9 */
     }
     .title {
-        font-size: 1.8rem;
+        font-size: 1.62rem; /* 1.8rem * 0.9 */
     }
     .section-text-p2 {
-        font-size: 1.1rem;
+        font-size: 0.99rem; /* 1.1rem * 0.9 */
     }
     .btn-container {
         flex-direction: column;
-        gap: 0.8rem;
+        gap: 0.72rem; /* 0.8rem * 0.9 */
     }
     .btn {
-        width: 70%;
-        max-width: 200px;
+        width: 70%; /* Keeping percentage as is, max-width will handle */
+        max-width: 180px; /* 200px * 0.9 */
     }
 
     .about-details-container {
@@ -813,76 +796,76 @@ footer p {
     }
     .details-container {
         min-width: unset;
-        padding: 1rem;
+        padding: 0.9rem; /* 1rem * 0.9 */
     }
     .details-container h3 {
-        font-size: 1rem;
+        font-size: 0.9rem; /* 1rem * 0.9 */
     }
     .details-container p {
-        font-size: 0.9rem;
+        font-size: 0.81rem; /* 0.9rem * 0.9 */
     }
 
     /* Skill Grid inside cards (single column on mobile) */
     .experience-card .article-container {
-        grid-template-columns: 1fr; /* Force single column */
-        justify-items: flex-start; /* Align content to the left when stacked */
-        gap: 0.5rem;
+        grid-template-columns: 1fr;
+        justify-items: flex-start;
+        gap: 0.45rem; /* 0.5rem * 0.9 */
     }
     .experience-card article {
-        width: 90%;
-        max-width: 280px;
-        justify-content: flex-start; /* Align content left within item */
-        padding: 0.5rem;
+        width: 90%; /* Keeping percentage as is, max-width will handle */
+        max-width: 252px; /* 280px * 0.9 */
+        justify-content: flex-start;
+        padding: 0.45rem; /* 0.5rem * 0.9 */
     }
     .experience-card article > div {
-        text-align: left; /* Ensure text is left-aligned */
+        text-align: left;
     }
 
     /* Contact Section */
     .contact-info-upper-container {
         flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
+        gap: 0.9rem; /* 1rem * 0.9 */
+        padding: 0.9rem; /* 1rem * 0.9 */
         width: 90%;
     }
     .contact-info-container {
         flex-direction: row;
         justify-content: center;
-        gap: 0.5rem;
+        gap: 0.45rem; /* 0.5rem * 0.9 */
     }
     .contact-info-container p {
-        font-size: 1rem;
+        font-size: 0.9rem; /* 1rem * 0.9 */
     }
     .contact-icon, .email-icon {
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 1.35rem; /* 1.5rem * 0.9 */
+        height: 1.35rem; /* 1.5rem * 0.9 */
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 540px) { /* 600px * 0.9 = 540px */
     .title {
-        font-size: 1.6rem;
+        font-size: 1.44rem; /* 1.6rem * 0.9 */
     }
     .section-text-p1 {
-        font-size: 0.85rem;
+        font-size: 0.765rem; /* 0.85rem * 0.9 */
     }
     .section-text-p2 {
-        font-size: 1rem;
+        font-size: 0.9rem; /* 1rem * 0.9 */
     }
     .logo {
-        font-size: 1.5rem;
+        font-size: 1.35rem; /* 1.5rem * 0.9 */
     }
     .nav-links li a {
-        font-size: 0.9rem;
+        font-size: 0.81rem; /* 0.9rem * 0.9 */
     }
     .section-pic-container {
-        width: 180px;
-        height: 180px;
+        width: 162px; /* 180px * 0.9 */
+        height: 162px; /* 180px * 0.9 */
     }
     .text-container p {
-        font-size: 0.85rem;
+        font-size: 0.765rem; /* 0.85rem * 0.9 */
     }
     footer p {
-        font-size: 0.75rem;
+        font-size: 0.675rem; /* 0.75rem * 0.9 */
     }
 }
