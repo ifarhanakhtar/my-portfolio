@@ -334,26 +334,25 @@ section {
 }
 
 
+/* --- START of changes for skill sections --- */
 .article-container {
-    display: flex;
-    flex-wrap: wrap;
-    /* justify-content: center; */ /* Changed for better distribution */
-    justify-content: space-around; /* Distributes items with space between them */
-    align-items: flex-start;
-    gap: 1.5rem; /* Reduced gap slightly for better fit, adjusted below */
+    display: grid; /* Changed from flex to grid */
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Responsive 2-column (or more) grid */
+    gap: 1.5rem 0.5rem; /* Row gap and column gap */
+    justify-items: center; /* Center items within their grid cells */
+    align-items: start; /* Align items to the start of their grid cell */
     margin-top: 1rem;
 }
 
-/* Specific styling for skill articles to ensure uniformity */
 article {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    /* width: 10rem; Removed fixed width */
-    flex: 0 0 calc(50% - 0.75rem); /* Allows 2 items per row, accounting for gap */
-    min-width: 120px; /* Ensure a minimum width for readability */
-    max-width: 180px; /* Prevent articles from becoming too wide */
-    gap: 0.75rem; /* Space between checkmark icon and the text */
+    /* Removed justify-content: flex-start from here */
+    gap: 0.75rem;
+    /* Removed flex properties and fixed widths, let grid handle sizing */
+    width: 100%; /* Make article fill its grid cell */
+    padding: 0.5rem; /* Add a little padding inside article for visual spacing */
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 /* Adjustments for the checkmark icon within skill articles */
@@ -378,6 +377,7 @@ article p {
     margin: 0;
     line-height: 1.2;
 }
+/* --- END of changes for skill sections --- */
 
 
 /*Project Section*/
@@ -492,12 +492,13 @@ footer p {
     }
     /* Adjust article layout within experience cards for smaller screens */
     .article-container {
-        gap: 1rem; /* Reduce gap further */
-        justify-content: space-around; /* Keep space-around */
+        /* Keep grid layout for flexibility */
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Adjust min-width if needed */
+        gap: 1rem 0.5rem; /* Adjust gaps */
     }
     article {
-        flex: 0 0 calc(50% - 0.5rem); /* Stay 2 columns */
-        min-width: 100px; /* Adjust min-width if needed */
+        /* No specific flex or width here, let grid handle it */
+        padding: 0.3rem; /* Slightly less padding */
     }
 }
 
@@ -546,16 +547,15 @@ footer p {
     }
     /* Ensure articles within skill cards remain readable on very small screens */
     .article-container {
-        gap: 0.5rem; /* Even smaller gap */
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Adapt grid for smaller screens */
+        gap: 0.5rem 0.2rem; /* Even smaller gap */
     }
     article {
-        flex: 0 0 100%; /* Stack skills vertically on very small screens */
-        justify-content: center; /* Center items when stacked */
-        min-width: unset; /* Remove min-width when stacked */
-        max-width: unset; /* Remove max-width when stacked */
+        /* No specific flex or width here */
+        padding: 0.2rem;
     }
     article > div {
-        text-align: center; /* Center text when items stack */
+        text-align: left; /* Keep text left-aligned within smaller articles */
     }
 }
 
@@ -605,6 +605,19 @@ footer p {
     }
     .email-icon {
         height: 2rem;
+    }
+    .article-container {
+        grid-template-columns: 1fr; /* Stack skills in a single column */
+        justify-items: center; /* Center items when stacked */
+        gap: 0.5rem;
+    }
+    article {
+        width: 80%; /* Give articles some width when stacked */
+        max-width: 250px; /* Limit max width */
+        justify-content: center; /* Center content horizontally within stacked article */
+    }
+    article > div {
+        text-align: center; /* Center text when items are stacked */
     }
 }
 
