@@ -386,8 +386,8 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Push content to top, button to bottom */
-    /* flex-basis for 3 columns with 2rem gap */
-    flex: 1 1 calc(33.333% - 1.333rem); /* Updated for precision: (2rem * 2 / 3) = 1.333rem */
+    /* Updated flex-basis to account for the 2rem gap more precisely, aiming for 3 columns */
+    flex: 1 1 calc(33.333% - (2rem * 2 / 3)); /* 33.333% - (gap * (number of gaps for 3 items / 3)) */
     min-width: 280px;
     max-width: 400px;
     padding: 1.8rem;
@@ -398,14 +398,16 @@ section {
     text-align: center;
 }
 
-.experience-card h2.project-title { /* Targeting the specific H2 for consistency */
+.experience-card h3 {
     font-size: 1.5rem;
     margin-bottom: 1.2rem; /* More space below heading */
     color: #222;
 }
 
-/* Work Experience specific styling (no collapsed/expanded states) */
+/* Work Experience specific styling */
 .experience-content {
+    overflow: hidden;
+    transition: max-height 0.7s ease-in-out;
     text-align: left; /* Ensure text is left-aligned */
     flex-grow: 1; /* Allow content to grow and fill space */
     display: flex;
@@ -413,37 +415,52 @@ section {
     justify-content: flex-start; /* Align content to the top */
 }
 
-.experience-content h3 { /* For Executive - Operations title */
+.experience-content h4 {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
     color: #333;
 }
-.experience-content p { /* For date range under experience */
+.experience-content p {
     font-size: 0.95rem;
     color: rgb(85, 85, 85);
     margin-bottom: 1rem;
 }
-
-/* The div that contained the collapsible content, now always visible */
-.experience-description {
-    text-align: left; /* Ensure text is left-aligned */
-    /* No max-height, overflow-hidden, or ::after for 'Read More' */
-    margin-bottom: 0; /* Remove default paragraph margin */
-}
-
-.experience-description ul {
+.experience-content ul {
     list-style-type: disc;
     padding-left: 20px;
     margin-bottom: 0;
 }
-.experience-description li {
+.experience-content li {
     font-size: 0.95rem;
     color: rgb(85, 85, 85);
     margin-bottom: 0.5rem; /* Space between list items */
 }
 
-/* No .read-more-btn specific styles needed anymore */
+.experience-content.collapsed {
+    max-height: 7em; /* Adjusted height to show more text initially */
+    position: relative;
+}
 
+.experience-content.collapsed::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3.5em;
+    background: linear-gradient(to bottom, rgba(250,250,250,0), rgba(250,250,250, 0.95));
+    pointer-events: none;
+}
+
+.experience-content.expanded {
+    max-height: 1000px; /* Sufficiently large */
+}
+
+.read-more-btn {
+    align-self: center; /* Center button horizontally */
+    margin-top: 1.5rem; /* Space above the button */
+    flex-shrink: 0; /* Prevent button from shrinking */
+}
 
 /* Programming Languages & Tools (Grid Layout) */
 .experience-card .article-container {
@@ -477,7 +494,7 @@ section {
     margin-top: 0.1rem;
 }
 
-.experience-card article h3 { /* Changed from h4 to h3 to match your HTML */
+.experience-card article h4 {
     margin: 0;
     line-height: 1.2;
     font-size: 1rem;
@@ -507,8 +524,8 @@ section {
 }
 
 #projects .details-container { /* Styling for individual project cards */
-    /* flex-basis for 3 columns with 2rem gap */
-    flex: 1 1 calc(33.333% - 1.333rem);
+    /* Updated flex-basis for consistent 3-column layout */
+    flex: 1 1 calc(33.333% - (2rem * 2 / 3));
     min-width: 280px;
     max-width: 400px;
     padding: 1.5rem;
@@ -531,7 +548,7 @@ section {
     display: block; /* Remove extra space below image */
 }
 
-#projects .experience-sub-title.project-title { /* Targeting the specific H2 for consistency */
+.project-title {
     font-size: 1.4rem;
     margin-top: 0.5rem;
     margin-bottom: 1rem;
@@ -697,7 +714,7 @@ footer p {
         gap: 0.8rem 0.5rem; /* Adjusted gaps */
         justify-items: center; /* Center items for better fill on smaller screens */
     }
-    .experience-card article h3 { /* Changed from h4 to h3 to match your HTML */
+    .experience-card article h4 {
         font-size: 0.95rem;
     }
     .experience-card article p {
@@ -758,7 +775,7 @@ footer p {
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Further adapt min width */
         gap: 0.5rem 0.3rem;
     }
-    .experience-card article h3 { /* Changed from h4 to h3 to match your HTML */
+    .experience-card article h4 {
         font-size: 0.9rem;
     }
     .experience-card article p {
