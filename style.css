@@ -1,145 +1,65 @@
-/* Universal Styles */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+/* GENERAL */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Global box-sizing for consistent layout */
 }
 
 body {
-    font-family: 'Poppins', sans-serif;        /* Sets the default font */
-    line-height: 1.6;                          /* Improves text readability */
-    color: #333;                               /* Default text color */
-    background-color: #f8f8f8;                 /* Light background color */
-    overflow-x: hidden;                        /* Prevents horizontal scrolling */
-
-    /* 90% zoom effect at 100% browser zoom */
-    transform: scale(0.9);
-    transform-origin: top left;
-    width: 111.11%;
-    height: 111.11%;
+    font-family: "Poppins", sans-serif;
 }
-
 
 html {
     scroll-behavior: smooth;
 }
 
-/* Typography */
-p {
-    color: rgb(85, 85, 85);
-    margin-bottom: 1rem; /* Consistent paragraph spacing */
+/* TRANSITION */
+
+a,
+.btn {
+    transition: all 300ms ease;
 }
 
-h1, h2, h3, h4 {
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-    color: #222;
-    line-height: 1.2; /* Better line spacing for headings */
+/* DESKTOP NAV */
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 17vh;
 }
 
-.title {
-    font-size: 3rem;
-    text-align: center;
-    margin-bottom: 2.5rem; /* Increased spacing below titles */
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    font-size: 1.5rem;
 }
 
-.section-text-p1 {
-    text-align: center;
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 0.5rem; /* Closer to title */
-}
-
-.section-text-p2 {
-    font-size: 1.75rem;
-    margin-bottom: 2rem; /* More space below descriptive text */
-    color: #333;
-}
-
-/* Links & Buttons */
 a {
     color: black;
     text-decoration: none;
-    transition: all 300ms ease;
+    text-decoration-color: white;
 }
 
 a:hover {
     color: grey;
     text-decoration: underline;
-    text-underline-offset: 0.8rem;
+    text-underline-offset: 1rem;
     text-decoration-color: rgb(181, 181, 181);
-}
-
-.btn-container {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-
-.btn {
-    font-weight: 600;
-    padding: 0.8rem 1.5rem;
-    border-radius: 2rem;
-    cursor: pointer;
-    transition: all 300ms ease;
-    border: 1px solid rgb(53, 53, 53);
-    background: none;
-    color: rgb(53, 53, 53);
-}
-
-.btn-color-1 {
-    background: rgb(53, 53, 53);
-    color: white;
-}
-
-.btn-color-2 {
-    background: none;
-    color: rgb(53, 53, 53);
-}
-
-.btn:hover {
-    opacity: 0.9; /* Subtle hover effect */
-}
-
-.btn-color-1:hover {
-    background: black;
-}
-
-.btn-color-2:hover {
-    border-color: rgb(255, 255, 255);
-    background: rgb(53, 53, 53);
-    color: white;
-}
-
-/* Navigation */
-nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 10vh; /* Consistent height */
-    padding: 0 5%;
 }
 
 .logo {
     font-size: 2rem;
-    font-weight: 600;
-    color: #222;
 }
+
 .logo:hover {
     cursor: default;
 }
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    font-size: 1.1rem;
-    gap: 2rem;
-}
+/* HAMBURGER MENU */
 
-/* Hamburger Menu (Mobile Navigation) */
 #hamburger-nav {
     display: none;
 }
@@ -174,29 +94,20 @@ nav {
     max-height: 0;
     overflow: hidden;
     transition: all 0.3s ease-in-out;
-    z-index: 10;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.menu-links ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
 }
 
 .menu-links a {
     display: block;
-    padding: 10px 20px;
+    padding: 10px;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: black;
     text-decoration: none;
     transition: all 0.3s ease-in-out;
 }
 
-.menu-links a:hover {
-    background-color: #f0f0f0;
+.menu-links li {
+    list-style: none;
 }
 
 .menu-links.open {
@@ -206,528 +117,362 @@ nav {
 .hamburger-icon.open span:first-child {
     transform: rotate(45deg) translate(10px, 5px);
 }
+
 .hamburger-icon.open span:nth-child(2) {
     opacity: 0;
 }
+
 .hamburger-icon.open span:last-child {
     transform: rotate(-45deg) translate(10px, -5px);
 }
 
-/* Sections General */
+.hamburger-icon span:first-child {
+    transform: none;
+}
+
+.hamburger-icon span:first-child {
+    opacity: 1;
+}
+
+.hamburger-icon span:first-child {
+    transform: none;
+}
+
+/* SECTIONS */
+
 section {
-    padding: 10vh 8rem; /* Adjusted horizontal padding for more content space */
-    min-height: fit-content;
-    position: relative;
+    padding: 4vh 8rem; /* Adjusted padding slightly */
+    margin: 0 10rem; /* Adjusted margin slightly */
     box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center content horizontally within section */
-    justify-content: center;
+    min-height: fit-content;
 }
 
 .section-container {
     display: flex;
-    flex-wrap: wrap; /* Allow wrapping of internal components */
-    gap: 4rem;
-    align-items: center;
-    justify-content: center; /* Center components within the container */
-    width: 100%;
-    max-width: 1200px; /* Standardized max width for main content areas */
-    margin: 0 auto; /* Center the container itself */
 }
 
-.section-pic-container {
+/* PROFILE SECTION */
+
+#profile {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 2rem;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    flex-shrink: 0;
+    gap: 5rem;
+    height: 80vh;
 }
 
-.section-pic-container img {
-    max-width: 100%;
-    height: auto;
-    display: block;
+.section__pic-container {
+    display: flex;
+    height: 400px;
+    width: 400px;
+    margin: auto 0;
+}
+
+.section__pic-container img {
+    border-radius: 2rem;
+}
+
+.section__text {
+    align-self: center;
+    text-align: center;
+}
+
+.section__text p {
+    font-weight: 600;
+}
+
+.section__text__p1 {
+    text-align: center;
+}
+
+.section__text__p2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+.title {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 2rem; /* Added margin below title */
+}
+
+.section-container {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+}
+
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn {
+    font-weight: 600;
+    transition: all 300ms ease;
+    padding: 1rem;
+    width: 8rem;
+    border-radius: 2rem;
+}
+
+.btn-color-1,
+.btn-color-2 {
+    border: rgb(50, 50, 50) 0.1rem solid;
+}
+
+.btn-color-1:hover,
+.btn-color-2:hover {
+    cursor: pointer;
+}
+
+.btn-color-1,
+.btn-color-2:hover {
+    background: rgb(50, 50, 50);
+    color: white;
+}
+
+.btn-color-1:hover {
+    background: rgb(0, 0, 0);
+}
+
+.btn-color-2 {
+    background: none;
+}
+
+.btn-color-2:hover {
+    border: rgb(255, 255, 255) 0.1rem solid;
 }
 
 .icon {
     cursor: pointer;
     height: 2rem;
-    width: auto;
-    vertical-align: middle;
 }
 
-/* Profile Section */
-#profile {
-    flex-direction: row; /* Default to row on desktop */
-    gap: 5rem;
-    min-height: 90vh; /* Increased min-height for better vertical centering */
-    padding-top: 10vh; /* Adjust based on nav height */
-}
-
-#profile .section-pic-container {
-    height: 350px;
-    width: 350px;
-}
-
-.section-text {
-    text-align: center;
-    max-width: 600px;
-}
-
-#socials-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-    gap: 1rem;
-}
-
-/* About Section */
+/* ABOUT SECTION */
+/* MODIFIED FOR NEW LAYOUT */
 #about {
-    padding-top: 10vh;
-}
-
-#about .section-container {
-    flex-direction: row; /* Ensure image and text are side by side */
-    align-items: flex-start; /* Align items to the top for consistent layout */
-    justify-content: center;
-    gap: 4rem; /* Standardized gap */
-}
-
-#about .section-pic-container {
-    width: 350px;
-    height: 350px;
+    position: relative;
+    height: fit-content;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
     margin: 0;
 }
 
 .about-details-container {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Align content to the top */
-    flex: 1;
-    min-width: 300px;
+    align-items: flex-start; /* Align items to the start of the cross-axis */
+    gap: 3rem;
+    margin-top: 3rem; /* Space below the About Me heading */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    max-width: 1200px; /* Keep consistent max width for content */
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center; /* Center content when it wraps */
 }
 
-.about-container { /* This refers to the container for experience/education boxes */
+.about-details-container .pic-container {
+    flex-shrink: 0;
+    width: 300px;
+    height: 300px;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin-bottom: 2rem; /* Space below these boxes */
+    align-items: center;
+    overflow: hidden;
+    border-radius: 2rem;
+    background-color: #f0f8ff; /* Light blue background for the image container */
+}
+
+.about-details-container .pic-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2rem;
+}
+
+/* NEW CONTAINER FOR EXPERIENCE & EDUCATION CARDS */
+.experience-education-wrapper {
+    flex: 1; /* Allow this wrapper to grow and take available space */
+    display: flex;
+    gap: 2rem; /* Space between the two cards */
+    flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+    justify-content: center; /* Center cards when they wrap */
+    min-width: 500px; /* Ensure this wrapper has enough space for two cards side-by-side */
+    /* Removed max-width here, flex: 1 should handle sizing */
 }
 
 .details-container {
+    flex: 1; /* Allow cards to grow and shrink */
+    min-width: 250px; /* Minimum width for each card */
+    max-width: 400px; /* Max width for each card */
     padding: 1.5rem;
-    flex: 1;
-    min-width: 250px;
-    max-width: 350px; /* Max width to prevent them from becoming too wide */
-    background: white;
     border-radius: 2rem;
-    border: 1px solid rgb(163, 163, 163);
+    border: rgb(50, 50, 50) 0.1rem solid;
+    border-color: rgb(163, 163, 163);
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    background-color: white;
 }
 
-.details-container h3 {
+.details-container img.icon {
+    font-size: 2rem;
     margin-bottom: 0.5rem;
-    color: #333;
-    font-size: 1.2rem;
-}
-.details-container p {
-    font-size: 1rem;
-    color: rgb(85, 85, 85);
-    margin-bottom: 0; /* Remove default paragraph margin */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.text-container p {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: rgb(85, 85, 85);
-    text-align: justify; /* Justify text for a cleaner block */
-    margin-bottom: 0; /* Remove default paragraph margin */
-}
-
-.arrow {
-    position: absolute;
-    right: 50%;
-    transform: translateX(50%);
-    bottom: 3rem; /* Adjusted for better visibility */
-    width: 3rem;
-    height: auto;
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
-}
-.arrow:hover {
-    opacity: 1;
+.text-container {
+    /* This will now span below the image and cards */
+    flex-basis: 100%; /* Make it take 100% width of its parent (.about-details-container) */
+    text-align: center;
+    margin-top: 3rem; /* Space between cards/image and the text */
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    max-width: 1000px; /* Limit max width for readability */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
-/* Experience Section */
+/* EXPERIENCE SECTION */
 #experience {
-    padding-top: 10vh; /* Consistent top padding */
-    padding-bottom: 10vh; /* Consistent bottom padding */
+    position: relative;
+    height: fit-content;
+    padding-top: 8vh;
 }
 
 .experience-details-container {
     display: flex;
     justify-content: center;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-#experience .about-container { /* This is the container for the 3 cards (Work, Programming, Tools) */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem; /* Consistent gap between cards */
-    width: 100%;
-    margin-bottom: 0;
-    margin-top: 0;
-    align-items: stretch; /* Make all cards the same height for clean rows */
-}
-
-.experience-card {
-    display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Push content to top, button to bottom */
-    /* flex-basis for 3 columns with 2rem gap */
-    flex: 1 1 calc(33.333% - 1.333rem); /* Updated for precision: (2rem * 2 / 3) = 1.333rem */
-    min-width: 280px;
-    max-width: 400px;
-    padding: 1.8rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    border: 1px solid rgb(163, 163, 163);
-    background: rgb(250, 250, 250);
-    border-radius: 2rem; /* Consistent with other cards */
-    text-align: center;
 }
 
-.experience-card h2.project-title { /* Targeting the specific H2 for consistency */
-    font-size: 1.5rem;
-    margin-bottom: 1.2rem; /* More space below heading */
-    color: #222;
-}
-
-/* Work Experience specific styling (no collapsed/expanded states) */
-.experience-content {
-    text-align: left; /* Ensure text is left-aligned */
-    flex-grow: 1; /* Allow content to grow and fill space */
+.article-container {
     display: flex;
-    flex-direction: column; /* Stack children vertically */
-    justify-content: flex-start; /* Align content to the top */
+    text-align: initial;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 2.5rem;
+    justify-content: space-around;
 }
 
-.experience-content h3 { /* For Executive - Operations title */
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: #333;
-}
-.experience-content p { /* For date range under experience */
-    font-size: 0.95rem;
-    color: rgb(85, 85, 85);
-    margin-bottom: 1rem;
-}
-
-/* The div that contained the collapsible content, now always visible */
-.experience-description {
-    text-align: left; /* Ensure text is left-aligned */
-    /* No max-height, overflow-hidden, or ::after for 'Read More' */
-    margin-bottom: 0; /* Remove default paragraph margin */
-}
-
-.experience-description ul {
-    list-style-type: disc;
-    padding-left: 20px;
-    margin-bottom: 0;
-}
-.experience-description li {
-    font-size: 0.95rem;
-    color: rgb(85, 85, 85);
-    margin-bottom: 0.5rem; /* Space between list items */
-}
-
-/* No .read-more-btn specific styles needed anymore */
-
-
-/* Programming Languages & Tools (Grid Layout) */
-.experience-card .article-container {
-    display: grid;
-    /* Adjusted minmax to aim for two columns that fill space well without too much blank space */
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Increased min-width for wider items */
-    gap: 1rem; /* Consistent gap for grid items */
-    justify-items: start; /* Align items to the start of their grid cell */
-    align-items: start;
-    margin-top: 1rem;
-    padding: 0 0.2rem;
-    width: 100%;
-    flex-grow: 1; /* Allow the grid to take up available vertical space */
-    align-content: start; /* Align content to the top within the grid */
-}
-
-.experience-card article {
+article {
     display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    width: 100%;
-    padding: 0.3rem 0;
-    box-sizing: border-box;
-    text-align: left;
+    width: 10rem;
+    justify-content: space-around;
+    gap: 0.5rem;
 }
 
-.experience-card article .icon {
-    width: 1.1rem;
-    height: 1.1rem;
-    flex-shrink: 0;
-    margin-top: 0.1rem;
+article .icon {
+    cursor: default;
 }
 
-.experience-card article h3 { /* Changed from h4 to h3 to match your HTML */
-    margin: 0;
-    line-height: 1.2;
-    font-size: 1rem;
-    color: #333;
-}
-.experience-card article p {
-    margin: 0;
-    line-height: 1.2;
-    font-size: 0.85rem;
-    color: rgb(85, 85, 85);
-}
-
-
-/* Project Section */
+/* PROJECTS SECTION */
 #projects {
-    padding-top: 10vh;
-    padding-bottom: 10vh;
+    position: relative;
+    height: fit-content;
+    padding-top: 8vh;
+    margin-bottom: 6rem;
 }
 
-#projects .about-container { /* This is the container for the 3 project cards */
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    width: 100%;
-    max-width: 1200px;
-    align-items: stretch; /* Make all project cards the same height */
-}
-
-#projects .details-container { /* Styling for individual project cards */
-    /* flex-basis for 3 columns with 2rem gap */
-    flex: 1 1 calc(33.333% - 1.333rem);
-    min-width: 280px;
-    max-width: 400px;
-    padding: 1.5rem;
+.color-container {
+    border-color: rgb(163, 163, 163);
     background: rgb(250, 250, 250);
-    border: 1px solid rgb(163, 163, 163);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    border-radius: 2rem; /* Consistent with other cards */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Push image/description to top, buttons to bottom */
-    text-align: center; /* Center image and title by default */
 }
 
 .project-img {
-    border-radius: 1rem;
-    width: 100%;
-    height: 200px; /* Fixed height for project images for uniformity */
-    object-fit: cover; /* Ensures image covers area, may crop */
-    margin-bottom: 1rem;
-    display: block; /* Remove extra space below image */
+    border-radius: 2rem;
+    width: 90%;
+    height: 90%;
 }
 
-#projects .experience-sub-title.project-title { /* Targeting the specific H2 for consistency */
-    font-size: 1.4rem;
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-    color: #222;
-    text-align: center; /* Ensure project titles are centered */
+.project-title {
+    margin: 1rem;
+    color: black;
 }
 
-.project-description {
-    font-size: 0.95rem;
-    color: rgb(85, 85, 85);
-    text-align: left; /* Project descriptions should be left-aligned */
-    margin-bottom: 1.5rem;
-    flex-grow: 1; /* Allow description to take available vertical space */
-}
-.project-description p {
-    margin-bottom: 0.5rem;
+.project-btn {
+    color: black;
+    border-color: rgb(163, 163, 163);
 }
 
-#projects .btn-container { /* Specific to project card buttons */
-    margin-top: auto; /* Push buttons to the bottom of the card */
-    padding-top: 0; /* Remove potential extra padding from auto-margin */
-}
-
-
-/* Contact Section */
+/* CONTACT SECTION */
 #contact {
-    padding-top: 10vh;
-    padding-bottom: 10vh;
-    min-height: 50vh;
+    display: flex;
     justify-content: center;
+    flex-direction: column;
+    height: 70vh;
+    margin: 0 6rem;
 }
 
 .contact-info-upper-container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 2rem;
-    width: 100%;
-    max-width: 700px;
+    border-radius: 2rem;
+    border: rgb(50, 50, 50) 0.1rem solid;
+    border-color: rgb(163, 163, 163);
+    background: rgb(250, 250, 250);
     margin: 2rem auto;
     padding: 1.5rem;
-    border-radius: 2rem;
-    border: 1px solid rgb(163, 163, 163);
-    background: rgb(250, 250, 250);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
 .contact-info-container {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 1rem;
 }
 
 .contact-info-container p {
-    font-size: 1.1rem;
-    margin-bottom: 0;
-}
-
-.contact-info-container a {
-    color: rgb(85, 85, 85);
+    font-size: large;
 }
 
 .contact-icon {
-    width: 1.8rem;
-    height: 1.8rem;
+    cursor: default;
 }
 
 .email-icon {
-    width: 2rem;
-    height: 2rem;
+    height: 2.5rem;
 }
 
-/* Footer */
+/* FOOTER SECTION */
 footer {
-    padding: 2rem 1rem;
-    text-align: center;
-    background-color: #f0f0f0;
-    border-top: 1px solid #e0e0e0;
-}
-
-footer nav {
-    height: auto;
-    margin-bottom: 1rem;
-}
-
-footer .nav-links {
+    height: 26vh;
+    margin: 0 1rem;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    display: flex;
 }
 
 footer p {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 0;
+    text-align: center;
 }
 
-/* --- Media Queries for Responsiveness --- */
+/* MEDIA QUERIES */
 
 @media screen and (max-width: 1400px) {
-    /* General section padding adjustment */
-    section {
-        padding-left: 5rem;
-        padding-right: 5rem;
-    }
-
-    /* Profile Section */
     #profile {
+        height: 83vh;
+        margin-bottom: 6rem;
+    }
+    .about-details-container {
         flex-direction: column;
-        text-align: center;
-        gap: 2rem;
-        min-height: auto; /* Allow height to adjust */
-        padding-top: 8vh; /* Adjusted for smaller screens */
-        padding-bottom: 8vh;
-    }
-    #profile .section-pic-container {
-        width: 280px;
-        height: 280px;
-    }
-    .section-text-p2 {
-        font-size: 1.5rem;
-    }
-    .title {
-        font-size: 2.5rem;
-    }
-
-    /* About Section */
-    #about .section-container {
-        flex-direction: column; /* Stack image and text */
-        gap: 2rem; /* Increased gap slightly */
-        align-items: center; /* Center everything when stacked */
-    }
-    #about .section-pic-container {
-        width: 280px;
-        height: 280px;
-    }
-    .about-container {
-        flex-direction: column; /* Stack experience/education boxes */
-        gap: 1.5rem;
-    }
-    .details-container {
-        max-width: 400px;
-    }
-    .text-container p {
-        text-align: left; /* Revert to left-align for small screens if justify looks bad */
-    }
-
-
-    /* Experience Section (Cards) */
-    #experience .about-container {
-        flex-direction: column;
+        justify-content: center;
         align-items: center;
-        gap: 1.5rem;
+        gap: 2.5rem;
     }
-    .experience-card {
-        flex: unset; /* Remove flex-basis when stacked */
-        width: 90%;
-        max-width: 600px;
-        padding: 1.5rem;
+    .experience-details-container {
+        margin-top: 2rem;
     }
-
-    /* Skill Grid inside cards */
-    .experience-card .article-container {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Adapt min width */
-        gap: 0.8rem 0.5rem; /* Adjusted gaps */
-        justify-items: center; /* Center items for better fill on smaller screens */
+    #projects {
+        height: fit-content;
     }
-    .experience-card article h3 { /* Changed from h4 to h3 to match your HTML */
-        font-size: 0.95rem;
-    }
-    .experience-card article p {
-        font-size: 0.8rem;
-    }
-    .experience-card article {
-        justify-content: center; /* Center content within each skill item */
-    }
-    .experience-card article > div {
-        text-align: center; /* Center text within skill item */
-    }
-
-
-    /* Project Cards */
-    #projects .about-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
-    }
-    #projects .details-container {
-        flex: unset;
-        width: 90%;
-        max-width: 600px;
+    #contact {
+        height: fit-content;
     }
 }
 
@@ -738,153 +483,176 @@ footer p {
     #hamburger-nav {
         display: flex;
     }
-    /* General section padding for smaller screens */
-    section {
-        padding-left: 2rem;
-        padding-right: 2rem;
-        padding-top: 8vh; /* Reduced top/bottom padding */
-        padding-bottom: 8vh;
+    #profile {
+        flex-direction: column;
+        height: 120vh;
     }
-
-    .section-pic-container {
-        width: 250px;
-        height: 250px;
+    .section__pic-container {
+        width: 275px;
+        height: 275px;
+    }
+    .section__text {
+        gap: 1rem;
+    }
+    .section__text__p2 {
+        font-size: 1.25rem;
     }
     .title {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
-    .section-text-p2 {
-        font-size: 1.3rem;
+    #about {
+        padding-top: 2rem; /* Adjusted for smaller screens */
     }
-    .btn {
-        padding: 0.6rem 1.2rem;
+    .about-details-container {
+        flex-direction: column; /* Stack image and cards vertically */
+        align-items: center; /* Center items when stacked */
+        gap: 2rem; /* Reduce gap */
     }
-
-    /* Skill Grid inside cards (smaller view) */
-    .experience-card .article-container {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Further adapt min width */
-        gap: 0.5rem 0.3rem;
+    .experience-education-wrapper {
+        flex-direction: column; /* Stack experience and education cards vertically */
+        min-width: unset; /* Remove min-width to allow full width */
+        width: 100%; /* Take full available width */
+        margin-top: 2rem; /* Add space between image and cards */
     }
-    .experience-card article h3 { /* Changed from h4 to h3 to match your HTML */
-        font-size: 0.9rem;
+    .details-container {
+        max-width: 100%; /* Allow cards to fill width when stacked */
+        width: auto; /* Adjust width automatically */
     }
-    .experience-card article p {
-        font-size: 0.75rem;
+    .text-container {
+        margin-top: 2rem; /* Reduce top margin for text */
+    }
+    #experience,
+    .experience-details-container {
+        margin-top: 2rem;
+    }
+    .experience-details-container {
+        flex-direction: column;
+    }
+    .article-container {
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+    .details-container {
+        margin: 0;
+    }
+    .contact-info-upper-container {
+        margin: 1rem auto;
     }
 }
 
 @media screen and (max-width: 768px) {
-    nav {
-        height: 10vh;
-    }
-    .logo {
-        font-size: 1.8rem;
-    }
-    .hamburger-icon {
-        width: 25px;
-        height: 20px;
-    }
-
     section {
-        padding-left: 1rem;
-        padding-right: 1rem;
-        padding-top: 6vh; /* Reduced top/bottom padding for mobile */
-        padding-bottom: 6vh;
+        margin: 0 1rem;
+        padding: 4vh 1rem;
     }
-    .section-pic-container {
+    #profile {
+        height: 100vh;
+        gap: 2rem;
+    }
+    .section__pic-container {
         width: 200px;
         height: 200px;
+    }
+    .section__text__p2 {
+        font-size: 1.1rem;
     }
     .title {
         font-size: 1.8rem;
     }
-    .section-text-p2 {
-        font-size: 1.1rem;
+    #about {
+        padding: 5rem 1rem;
     }
-    .btn-container {
-        flex-direction: column;
-        gap: 0.8rem;
-    }
-    .btn {
-        width: 70%;
-        max-width: 200px;
-    }
-
     .about-details-container {
-        min-width: unset;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .text-container {
+        font-size: 0.9rem;
+        margin-top: 1.5rem;
+    }
+    .experience-details-container {
+        margin-top: 1rem;
     }
     .details-container {
-        min-width: unset;
         padding: 1rem;
     }
-    .details-container h3 {
-        font-size: 1rem;
-    }
-    .details-container p {
-        font-size: 0.9rem;
-    }
-
-    /* Skill Grid inside cards (single column on mobile) */
-    .experience-card .article-container {
-        grid-template-columns: 1fr; /* Force single column */
-        justify-items: flex-start; /* Align content to the left when stacked */
-        gap: 0.5rem;
-    }
-    .experience-card article {
-        width: 90%;
-        max-width: 280px;
-        justify-content: flex-start; /* Align content left within item */
-        padding: 0.5rem;
-    }
-    .experience-card article > div {
-        text-align: left; /* Ensure text is left-aligned */
-    }
-
-    /* Contact Section */
-    .contact-info-upper-container {
+    .article-container {
         flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
+        align-items: center;
+    }
+    #projects {
+        padding: 4vh 1rem;
+    }
+    .project-img {
+        width: 100%;
+        height: auto;
+    }
+    .project-details-container {
         width: 90%;
+        margin: auto;
+    }
+    #contact {
+        margin: 0 1rem;
+    }
+    .contact-info-upper-container {
+        flex-wrap: wrap;
+        margin: 1rem 0;
     }
     .contact-info-container {
-        flex-direction: row;
-        justify-content: center;
-        gap: 0.5rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 0.2rem;
+        margin: 0.5rem;
     }
     .contact-info-container p {
-        font-size: 1rem;
+        font-size: medium;
     }
-    .contact-icon, .email-icon {
-        width: 1.5rem;
-        height: 1.5rem;
+    footer {
+        padding: 1rem 0;
     }
 }
 
 @media screen and (max-width: 600px) {
-    .title {
-        font-size: 1.6rem;
+    #profile {
+        height: 90vh;
     }
-    .section-text-p1 {
-        font-size: 0.85rem;
-    }
-    .section-text-p2 {
-        font-size: 1rem;
-    }
-    .logo {
-        font-size: 1.5rem;
-    }
-    .nav-links li a {
-        font-size: 0.9rem;
-    }
-    .section-pic-container {
+    .section__pic-container {
         width: 180px;
         height: 180px;
     }
-    .text-container p {
+    .section__text__p2 {
+        font-size: 1rem;
+    }
+    .title {
+        font-size: 1.6rem;
+    }
+    .btn-container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .btn {
+        width: 7rem;
+        padding: 0.8rem;
+    }
+    #about {
+        padding: 4rem 0.5rem;
+    }
+    .about-details-container .pic-container {
+        width: 200px;
+        height: 200px;
+    }
+    .details-container {
+        padding: 0.8rem;
         font-size: 0.85rem;
     }
-    footer p {
-        font-size: 0.75rem;
+    .contact-info-upper-container {
+        flex-direction: column;
+        width: 90%;
+    }
+    .contact-info-container {
+        margin: 0.5rem 0;
+    }
+    .contact-info-container p {
+        font-size: small;
     }
 }
