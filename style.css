@@ -208,7 +208,7 @@ nav {
 
 /* Sections General */
 section {
-    padding: 10vh 10rem; /* Increased top/bottom padding for separation */
+    padding: 10vh 8rem; /* Adjusted horizontal padding for more content space */
     min-height: fit-content;
     position: relative;
     box-sizing: border-box;
@@ -379,14 +379,15 @@ section {
     width: 100%;
     margin-bottom: 0;
     margin-top: 0;
-    align-items: stretch; /* Make all cards the same height */
+    align-items: stretch; /* Make all cards the same height for clean rows */
 }
 
 .experience-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Push content to top, button to bottom */
-    flex: 1 1 calc(33.33% - 1.33rem); /* Aim for 3 columns, account for gap */
+    /* Updated flex-basis to account for the 2rem gap more precisely, aiming for 3 columns */
+    flex: 1 1 calc(33.333% - (2rem * 2 / 3)); /* 33.333% - (gap * (number of gaps for 3 items / 3)) */
     min-width: 280px;
     max-width: 400px;
     padding: 1.8rem;
@@ -464,10 +465,10 @@ section {
 /* Programming Languages & Tools (Grid Layout) */
 .experience-card .article-container {
     display: grid;
-    /* Adjusted minmax to ensure two columns fit well without too much blank space */
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 0.8rem 0.6rem; /* Slightly larger column gap for separation */
-    justify-items: start;
+    /* Adjusted minmax to aim for two columns that fill space well without too much blank space */
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Increased min-width for wider items */
+    gap: 1rem; /* Consistent gap for grid items */
+    justify-items: start; /* Align items to the start of their grid cell */
     align-items: start;
     margin-top: 1rem;
     padding: 0 0.2rem;
@@ -523,7 +524,8 @@ section {
 }
 
 #projects .details-container { /* Styling for individual project cards */
-    flex: 1 1 calc(33.33% - 1.33rem);
+    /* Updated flex-basis for consistent 3-column layout */
+    flex: 1 1 calc(33.333% - (2rem * 2 / 3));
     min-width: 280px;
     max-width: 400px;
     padding: 1.5rem;
@@ -708,8 +710,8 @@ footer p {
 
     /* Skill Grid inside cards */
     .experience-card .article-container {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Adapt min width */
-        gap: 0.7rem 0.4rem;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Adapt min width */
+        gap: 0.8rem 0.5rem; /* Adjusted gaps */
         justify-items: center; /* Center items for better fill on smaller screens */
     }
     .experience-card article h4 {
