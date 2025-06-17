@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://superlative-beignet-70088d.netlify.app/sitemap.xml
+Sitemap: https://ifarhanakhtar-portfolio.netlify.app/sitemap.xml
