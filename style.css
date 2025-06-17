@@ -350,10 +350,10 @@ section {
 }
 
 .arrow {
-    position: absolute;
+    position: ;
     right: 50%;
     transform: translateX(50%);
-    bottom: 1rem; /* Adjusted for better visibility */
+    bottom: 2rem; /* Adjusted for better visibility */
     width: 3rem;
     height: auto;
     opacity: 0.7;
