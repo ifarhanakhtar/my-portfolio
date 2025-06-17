@@ -1,13 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
+/* GLOBAL STYLES */
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 body {
     font-family: 'Poppins', sans-serif;
+    line-height: 1.6; /* Improve readability */
+    color: #333; /* Default text color */
 }
+
 html {
     scroll-behavior: smooth;
 }
@@ -20,20 +25,20 @@ a, .btn {
     transition: all 300ms ease;
 }
 
-nav, .nav-links {
-    display: flex;
-}
-
+/* NAVIGATION BAR */
 nav {
+    display: flex;
     justify-content: space-around;
     align-items: center;
     height: 17vh;
+    padding: 0 1rem; /* Add some padding for smaller screens */
 }
 
 .nav-links {
+    display: flex;
     gap: 2rem;
     list-style: none;
-    font-size: 1.5rem;
+    font-size: 1.25rem; /* Slightly smaller for better fit on more screens */
 }
 
 a {
@@ -44,20 +49,21 @@ a {
 a:hover {
     color: grey;
     text-decoration: underline;
-    text-underline-offset: 1rem;
+    text-underline-offset: 0.75rem; /* Slightly smaller offset */
     text-decoration-color: rgb(181, 181, 181);
 }
 
 .logo {
-    font-size: 2rem;    
+    font-size: 1.75rem; /* Adjust for mobile */
+    font-weight: 600; /* Make it stand out */
 }
 .logo:hover {
     cursor: default;
 }
 
-/*hamurger-menu*/
+/* HAMBURGER MENU */
 #hamburger-nav {
-    display: none;
+    display: none; /* Hidden by default on desktop */
 }
 
 .hamburger-menu {
@@ -76,7 +82,7 @@ a:hover {
     width: 100%;
     height: 2px;
     background-color: black;
-    transition: all 0.3 ease-in-out;
+    transition: all 0.3s ease-in-out; /* Corrected transition property */
 }
 .menu-links {
     position: absolute;
@@ -86,17 +92,20 @@ a:hover {
     width: fit-content;
     max-height: 0;
     overflow: hidden;
-    transition: all 0.3 ease-in-out;
+    transition: all 0.3s ease-in-out; /* Corrected transition property */
+    z-index: 10; /* Ensure it's above other content */
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .menu-links a {
     display: block;
     padding: 10px;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.25rem; /* Adjusted for mobile */
     color: black;
     text-decoration: none;
-    transition: all 0.3 ease-in-out;
+    transition: all 0.3s ease-in-out; /* Corrected transition property */
 }
 
 .menu-links li {
@@ -104,46 +113,72 @@ a:hover {
 }
 
 .menu-links.open {
-    max-height: 300px;
+    max-height: 300px; /* Sufficient height for menu items */
 }
 .hamburger-icon.open span:first-child {
     transform: rotate(45deg) translate(10px, 5px);
 }
 .hamburger-icon.open span:nth-child(2) {
-    opacity: 0;;
+    opacity: 0;
 }
 .hamburger-icon.open span:last-child {
     transform: rotate(-45deg) translate(10px, -5px);
 }
-/* These three lines below were resetting transforms on first-child. Removed as they conflict with open state. */
-/* .hamburger-icon span:first-child {transform: none;} */
-/* .hamburger-icon span:first-child {opacity: 1;} */
-/* .hamburger-icon span:first-child {transform: none;} */
+/* Revert hamburger icon state when closed */
+.hamburger-icon:not(.open) span:first-child { transform: none; }
+.hamburger-icon:not(.open) span:nth-child(2) { opacity: 1; }
+.hamburger-icon:not(.open) span:last-child { transform: none; }
 
 
+/* SECTIONS */
 section {
     padding-top: 4vh;
-    height: 96vh;
-    margin: 0 10rem;
-    box-sizing: border-box;
+    height: auto; /* Changed from 96vh for better content flow on smaller screens */
+    margin: 0 1rem; /* Reduced margin for smaller screens */
     min-height: fit-content;
-}
-.section-container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
-#profile {
+.section-container {
     display: flex;
+    flex-wrap: wrap; /* Allows sections to wrap */
     justify-content: center;
-    gap: 5rem;
-    height: 80vh;  
+    gap: 2rem; /* Reduced gap for smaller screens */
+    width: 100%;
+    max-width: 1200px; /* Limit width on very large screens */
+}
+
+.title {
+    font-size: 2.5rem; /* Adjusted for mobile */
+    margin-bottom: 1.5rem;
+}
+
+/* PROFILE SECTION */
+#profile {
+    flex-direction: column; /* Stack on mobile */
+    gap: 2rem; /* Reduced gap */
+    height: auto; /* Allow height to adjust to content */
+    padding-top: 8vh; /* More top padding */
+    padding-bottom: 8vh;
 }
 
 .section-pic-container {
     display: flex;
-    height: 400px;
-    width:400px;
-    margin: auto 0;
+    justify-content: center;
+    height: 250px; /* Smaller image for mobile */
+    width: 250px; /* Smaller image for mobile */
+    margin: 0 auto; /* Center the image */
+    border-radius: 50%; /* Make it round if desired */
+    overflow: hidden;
+}
+.section-pic-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .section-text {
@@ -151,69 +186,57 @@ section {
     text-align: center;
 }
 
-.section-text p {
-    font-weight: 600;
-}
-
 .section-text-p1 {
-    text-align: center;
+    font-size: 1rem; /* Adjusted for mobile */
 }
 
 .section-text-p2 {
-    font-size: 1.74rem;
+    font-size: 1.25rem; /* Adjusted for mobile */
     margin-bottom: 1rem;
-}
-.title {
-    font-size: 3rem;
-    text-align: center;
 }
 
 #socials-container {
     display: flex;
     justify-content: center;
-    margin-top: 3rem;
-    gap: 1rem;
+    margin-top: 2rem; /* Adjusted margin */
+    gap: 0.75rem; /* Smaller gap */
 }
 
 .icon {
     cursor: pointer;
-    height: 2rem; /* Keep this for general icons */
+    height: 1.75rem; /* Adjusted size for smaller screens */
 }
 
-/*buttons*/
+/* BUTTONS */
 .btn-container {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    flex-wrap: wrap; /* Allow buttons to wrap */
+    gap: 0.75rem; /* Smaller gap */
 }
 
 .btn {
     font-weight: 600;
     transition: all 300ms ease;
-    padding: 1rem;
-    width: 8rem;
-    border-radius: 2rem;
-
+    padding: 0.75rem 1.25rem; /* Smaller padding */
+    width: 7rem; /* Adjusted width */
+    border-radius: 1.5rem; /* Adjusted border radius */
+    font-size: 0.9rem; /* Smaller font size */
 }
 .btn-color-1, .btn-color-2 {
     border: rgb(53, 53, 53) 0.1rem solid;
 }
-
-.btn-color-1:hover,
-.btn-color-2:hover {
+.btn-color-1:hover, .btn-color-2:hover {
     cursor: pointer;
 }
-.btn-color-1,
-.btn-color-2:hover {
+.btn-color-1, .btn-color-2:hover {
     cursor: pointer;
     background: rgb(53, 53, 53);
     color: white;
 }
-
 .btn-color-1:hover {
     background: rgb(0,0,0);
 }
-
 .btn-color-2 {
     background: none;
 }
@@ -221,197 +244,677 @@ section {
     border: rgb(255, 255, 255) 0.1rem solid;
 }
 
-.btn-container {
-    gap: 1rem;
-}
-
-/*ABOUT SECTION*/
-
+/* ABOUT SECTION */
 #about {
     position: relative;
-}
-
-.about-container, .about-details-container {
-    display: flex;
+    padding-bottom: 4vh; /* Add some bottom padding */
 }
 
 .about-container {
-    gap: 2rem;
-    margin-bottom: 2rem;
-    margin-top: 2rem;
+    flex-direction: column; /* Stack on mobile */
+    gap: 1.5rem; /* Reduced gap */
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
 }
 
 .about-details-container {
     justify-content: center;
     flex-direction: column;
+    width: 100%; /* Take full width on mobile */
 }
 
 .about-pic {
-    border-radius: 2rem;
+    border-radius: 1.5rem; /* Adjusted border radius */
+    max-width: 300px; /* Max width for image */
+    height: auto;
+    margin: 0 auto; /* Center on mobile */
 }
+
 .arrow {
-    position: absolute;
-    right: -5rem;
-    bottom: 2.5rem;
+    display: none; /* Hide arrow on small screens initially, show on larger screens */
 }
 
 .details-container {
-    padding: 1.5rem;
-    flex: 1;
+    padding: 1rem; /* Smaller padding */
     background: white;
-    border-radius: 2rem;
-    border: rgb(53, 53, 53) 0.1rem solid;
-    border-color: rgb(163, 163, 163);
+    border-radius: 1.5rem; /* Adjusted border radius */
+    border: rgb(163, 163, 163) 0.1rem solid; /* Simplified border */
     text-align: center;
+    margin-bottom: 1rem; /* Space between containers when stacked */
+}
+.details-container h3 {
+    font-size: 1.1rem; /* Adjusted for mobile */
+    margin-bottom: 0.25rem;
+}
+.details-container p {
+    font-size: 0.9rem; /* Adjusted for mobile */
 }
 
-.section-container {
-    gap: 4rem;
-    height: 80%;    
+.text-container p {
+    font-size: 0.95rem; /* Adjusted for mobile */
+    text-align: left;
+    padding: 0 0.5rem; /* Add some internal padding */
 }
 
-.section-pic-container {
-    height: 400px;
-    width: 400px;
-    margin: auto 0;
-}
 
-/*EXPERIENCE SECTION*/
-
+/* EXPERIENCE SECTION */
 #experience {
     position: relative;
+    padding-bottom: 4vh; /* Add some bottom padding */
 }
 
 .experience-sub-title {
-    color: rgb(85, 85, 85);
-    font-weight: 600;
-    font-size: 1.75rem;
-    margin-bottom: 2rem;
+    font-size: 1.5rem; /* Adjusted for mobile */
+    margin-bottom: 1.5rem;
 }
 
 .experience-details-container {
     display: flex;
-    justify-content: center;
-    flex-direction: column;      
+    flex-direction: column; /* Stack on mobile */
+    gap: 2rem; /* Gap between skill columns */
+    width: 100%;
 }
 
 .article-container {
     display: flex;
-    /* text-align: initial; Remove as it's not a flex item's property for content alignment */
     flex-wrap: wrap;
     flex-direction: row;
-    gap: 2.5rem; /* Gap between individual skill articles */
-    justify-content: center; /* Center the entire block of skills */
-    align-items: flex-start; /* Align all rows to the top. Can also try 'center' or 'stretch' */
+    gap: 1.5rem; /* Smaller gap between skills on mobile */
+    justify-content: center; /* Center the skill items */
+    align-items: flex-start; /* Align all rows to the top */
+    padding: 0 0.5rem; /* Add some internal padding */
 }
 
 /* Specific styling for skill articles to ensure uniformity */
 article {
     display: flex;
-    align-items: center; /* THIS IS KEY for vertical alignment of icon and text */
-    justify-content: flex-start; /* Aligns content to the start horizontally */
-    gap: 0.75rem; /* Space between checkmark icon and the text */
-    width: 10rem; /* Keep existing width for each skill item */
-    /* Optional: To ensure all skill items have roughly the same height,
-       you might set a min-height here based on your longest text + icon combination */
-    /* min-height: 4.5rem; */ /* Example: adjust this value if needed */
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem; /* Reduced gap */
+    width: 8rem; /* Smaller width for mobile */
+    /* Optional: min-height might be necessary if text wraps too much */
+    /* min-height: 4rem; */
 }
 
 /* Adjustments for the checkmark icon within skill articles */
 article .icon {
     cursor: default;
-    width: 1.5rem; /* Adjust size as needed to match the screenshot or desired look */
-    height: 1.5rem; /* Keep aspect ratio */
-    flex-shrink: 0; /* Prevent the icon from shrinking */
+    width: 1.25rem; /* Smaller icon for mobile */
+    height: 1.25rem;
+    flex-shrink: 0;
 }
 
 /* Styles for the div containing the skill name and experience level */
-article > div { /* Targets the div directly inside each article */
+article > div {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Vertically centers h3 and p within this div */
-    flex-grow: 1; /* Allows this div to take up available space, pushing content */
-    text-align: left; /* Ensure text aligns left within its container */
+    justify-content: center;
+    flex-grow: 1;
+    text-align: left;
 }
 
-article h3,
+article h3 {
+    font-size: 0.95rem; /* Smaller font for skill names */
+    margin: 0;
+    line-height: 1.2;
+}
+
 article p {
-    margin: 0; /* Remove default margins from h3 and p to prevent misalignment */
-    line-height: 1.2; /* Ensure consistent line height for text */
+    font-size: 0.8rem; /* Smaller font for experience level */
+    margin: 0;
+    line-height: 1.2;
 }
 
 
-/*Project Section*/
-
+/* PROJECT SECTION */
 #projects {
     position: relative;
-}
-
-.color-container {
-    border-color: rgb(163, 163, 163);
-    background: rgb(250, 250, 250);
+    padding-bottom: 4vh; /* Add some bottom padding */
 }
 
 .project-img {
-    border-radius: 2rem;
-    width: 90%;
-    height: 90%;
+    border-radius: 1.5rem; /* Adjusted border radius */
+    width: 100%; /* Take full width of its container */
+    max-width: 300px; /* Max width for consistency */
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 1rem;
 }
 
 .project-title {
-    margin: 1rem;
-    color: black;
+    font-size: 1.25rem; /* Adjusted for mobile */
+    margin: 0.5rem 0;
 }
 
-.project-btn {
-    color: black;
-    border-color: rgb(163, 163, 163);
+.project-description p {
+    font-size: 0.9rem; /* Adjusted for mobile */
+    text-align: left;
+    padding: 0 0.5rem;
 }
 
-/*contact*/
+.btn-container .project-btn {
+    width: 6rem; /* Smaller buttons for projects */
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+}
 
+/* CONTACT SECTION */
 #contact {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    height: 70vh;
+    height: auto; /* Adjust height */
+    padding-bottom: 8vh; /* More bottom padding */
 }
 
 .contact-info-upper-container {
-    display: flex;
-    justify-content: center;
-    border-radius: 2rem;
-    border: rgb(53, 53, 53) 0.1rem solid;
-    border-color: rgb(163, 163, 163);
-    background: rgb(250, 250, 250);
-    margin: 2rem auto;
-    padding: 0.5rem;
+    flex-direction: column; /* Stack on mobile */
+    gap: 1rem; /* Smaller gap */
+    border-radius: 1.5rem; /* Adjusted border radius */
+    margin: 1.5rem auto; /* Adjusted margin */
+    padding: 1rem; /* Adjusted padding */
+    width: 90%; /* Take more width on mobile */
+    max-width: 400px; /* Limit max width */
 }
 
 .contact-info-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    margin: 1rem;
+    flex-direction: column; /* Stack icon and text */
+    gap: 0.25rem; /* Smaller gap */
+    margin: 0.5rem 0; /* Reduced margin */
 }
 
 .contact-info-container p {
-    font-size: larger;
+    font-size: 0.95rem; /* Adjusted for mobile */
+    text-align: center; /* Center text under icon */
 }
 
 .contact-icon {
-    cursor: default;
+    height: 2rem; /* Adjusted icon size */
 }
 
 .email-icon {
-    height: 2.5rem;
+    height: 2.25rem; /* Adjusted size */
 }
 
+/* FOOTER */
 footer {
-    height: 26vh;
+    height: auto; /* Adjust height */
     margin: 0 1rem;
+    padding: 1.5rem 0; /* Add padding */
+    font-size: 0.9rem; /* Smaller font */
 }
 footer p {
     text-align: center;
+}
+footer .nav-links-container {
+    margin-bottom: 1rem;
+}
+footer .nav-links {
+    flex-wrap: wrap; /* Allow links to wrap */
+    justify-content: center;
+    font-size: 1.1rem; /* Adjusted for footer */
+    gap: 1rem;
+}
+
+
+/* ================================================= */
+/* MEDIA QUERIES FOR RESPONSIVE DESIGN */
+/* ================================================= */
+
+/* Small to Medium Mobile (>= 480px) */
+@media screen and (min-width: 480px) {
+    .logo {
+        font-size: 2rem;
+    }
+    .nav-links {
+        font-size: 1.35rem;
+    }
+    .hamburger-icon {
+        height: 28px;
+        width: 35px;
+    }
+    .menu-links a {
+        font-size: 1.35rem;
+    }
+    .icon {
+        height: 2rem;
+    }
+    .section-pic-container {
+        height: 300px;
+        width: 300px;
+    }
+    .title {
+        font-size: 3rem;
+    }
+    .section-text-p2 {
+        font-size: 1.5rem;
+    }
+    .btn {
+        padding: 0.8rem 1.3rem;
+        width: 7.5rem;
+        font-size: 1rem;
+    }
+    .about-pic {
+        max-width: 350px;
+    }
+    .details-container h3 {
+        font-size: 1.25rem;
+    }
+    .details-container p {
+        font-size: 1rem;
+    }
+    .text-container p {
+        font-size: 1rem;
+    }
+    article {
+        width: 9rem;
+    }
+    article .icon {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    article h3 {
+        font-size: 1rem;
+    }
+    article p {
+        font-size: 0.9rem;
+    }
+    .project-img {
+        max-width: 350px;
+    }
+    .project-title {
+        font-size: 1.5rem;
+    }
+    .project-description p {
+        font-size: 1rem;
+    }
+    .btn-container .project-btn {
+        width: 7rem;
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
+    }
+    .contact-info-container p {
+        font-size: 1.1rem;
+    }
+    .contact-icon {
+        height: 2.25rem;
+    }
+    .email-icon {
+        height: 2.5rem;
+    }
+}
+
+
+/* Tablet / Small Laptop (>= 768px) */
+@media screen and (min-width: 768px) {
+    #desktop-nav {
+        display: flex; /* Show desktop nav */
+    }
+    #hamburger-nav {
+        display: none; /* Hide hamburger nav */
+    }
+
+    nav {
+        height: 17vh; /* Revert height */
+        padding: 0 5rem; /* More padding */
+    }
+    .nav-links {
+        font-size: 1.5rem;
+    }
+    .logo {
+        font-size: 2.25rem;
+    }
+
+    section {
+        margin: 0 5rem; /* Increased margin */
+        padding-top: 8vh; /* More top padding */
+        height: 96vh; /* Restore original section height, adjust if content overflows */
+    }
+
+    #profile {
+        flex-direction: row; /* Side-by-side on larger screens */
+        justify-content: center;
+        gap: 5rem;
+        height: 80vh;
+        padding-top: 0; /* Adjust padding if needed */
+        padding-bottom: 0;
+    }
+    .section-pic-container {
+        height: 350px; /* Larger image */
+        width: 350px; /* Larger image */
+        margin: auto 0;
+        border-radius: 2rem; /* Revert to square if desired */
+    }
+    .section-text-p1 {
+        font-size: 1.15rem;
+    }
+    .section-text-p2 {
+        font-size: 1.75rem;
+    }
+    .title {
+        font-size: 3.5rem;
+    }
+    .icon {
+        height: 2rem;
+    }
+    .btn {
+        padding: 1rem;
+        width: 8rem;
+        border-radius: 2rem;
+        font-size: 1rem;
+    }
+    #socials-container {
+        margin-top: 3rem;
+        gap: 1rem;
+    }
+
+    #about .section-container {
+        flex-direction: row; /* Side-by-side */
+        gap: 4rem; /* More gap */
+        height: 80%;
+    }
+    .about-details-container {
+        width: auto; /* Let content dictate width */
+    }
+    .about-pic {
+        max-width: 400px;
+        height: 400px;
+        border-radius: 2rem;
+    }
+    .details-container {
+        padding: 1.5rem;
+        margin-bottom: 0; /* No margin when side-by-side */
+    }
+    .details-container h3 {
+        font-size: 1.25rem;
+    }
+    .details-container p {
+        font-size: 1.05rem;
+    }
+    .text-container p {
+        font-size: 1.05rem;
+        text-align: justify; /* Justify text for better readability */
+        padding: 0;
+    }
+    .arrow {
+        display: block; /* Show arrow on larger screens */
+        position: absolute;
+        right: -5rem;
+        bottom: 2.5rem;
+    }
+
+    .experience-sub-title {
+        font-size: 1.75rem;
+        margin-bottom: 2rem;
+    }
+    .experience-details-container {
+        flex-direction: row; /* Side-by-side columns */
+        gap: 3rem;
+    }
+    .experience-details-container > div { /* Target the two main skill boxes */
+        flex: 1; /* Distribute space evenly */
+        padding: 1.5rem; /* Add padding similar to details-container */
+        border: rgb(163, 163, 163) 0.1rem solid;
+        border-radius: 2rem;
+    }
+    .article-container {
+        justify-content: center; /* Center within the column */
+        gap: 2rem; /* More space between skill items */
+    }
+    article {
+        width: 10rem; /* Original width */
+        gap: 0.75rem; /* Original gap */
+    }
+    article .icon {
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+    article h3 {
+        font-size: 1.1rem;
+    }
+    article p {
+        font-size: 1rem;
+    }
+
+    #projects .section-container {
+        flex-direction: row; /* Arrange projects in a row */
+        flex-wrap: wrap;
+        gap: 2.5rem;
+        height: auto; /* Adjust height */
+    }
+    #projects .details-container { /* Style individual project cards */
+        flex: 1; /* Allow them to grow */
+        max-width: calc(33% - 1.7rem); /* 3 items per row with gap, adjust as needed */
+        min-width: 280px; /* Minimum width before wrapping */
+        padding: 1.5rem;
+        margin-bottom: 0;
+        text-align: center;
+    }
+    .project-img {
+        max-width: 100%; /* Fill container */
+        height: 200px; /* Fixed height for consistency */
+        object-fit: cover;
+    }
+    .project-title {
+        font-size: 1.5rem;
+    }
+    .project-description p {
+        font-size: 1rem;
+    }
+    .btn-container .project-btn {
+        width: 7rem;
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
+    }
+
+
+    #contact .contact-info-upper-container {
+        flex-direction: row; /* Arrange contact info in a row */
+        gap: 2rem;
+        width: auto; /* Adjust width based on content */
+        max-width: 600px;
+        padding: 0.5rem 2rem; /* More padding */
+    }
+    .contact-info-container {
+        flex-direction: row; /* Icon and text side-by-side */
+        gap: 0.5rem;
+        margin: 1rem;
+    }
+    .contact-info-container p {
+        font-size: larger;
+        text-align: left;
+    }
+    .contact-icon {
+        height: 2rem;
+    }
+    .email-icon {
+        height: 2.5rem;
+    }
+
+    footer {
+        height: 26vh; /* Restore original height */
+        margin: 0 10rem;
+        padding: 0;
+        font-size: 1rem;
+    }
+    footer .nav-links {
+        gap: 2rem;
+        font-size: 1.25rem;
+    }
+}
+
+/* Desktop / Large Laptop (>= 1024px) */
+@media screen and (min-width: 1024px) {
+    nav {
+        padding: 0 10rem; /* More padding */
+    }
+    .nav-links {
+        font-size: 1.5rem; /* Original size */
+    }
+    .logo {
+        font-size: 2.5rem;
+    }
+    section {
+        margin: 0 10rem; /* Original margin */
+    }
+    #profile {
+        gap: 5rem; /* Original gap */
+    }
+    .section-pic-container {
+        height: 400px;
+        width: 400px;
+    }
+    .title {
+        font-size: 3.5rem;
+    }
+    .section-text-p2 {
+        font-size: 1.75rem;
+    }
+    .btn {
+        width: 8rem;
+        padding: 1rem;
+    }
+
+    #about .section-container {
+        gap: 4rem;
+        height: 80%;
+    }
+    .about-pic {
+        max-width: 400px;
+        height: 400px;
+    }
+    .details-container {
+        padding: 1.5rem;
+    }
+    .text-container p {
+        font-size: 1rem;
+    }
+    .arrow {
+        right: -5rem;
+        bottom: 2.5rem;
+    }
+
+    .experience-sub-title {
+        font-size: 1.75rem;
+    }
+    .experience-details-container {
+        gap: 4rem; /* More gap between columns */
+    }
+    .article-container {
+        gap: 2.5rem; /* More gap within columns */
+    }
+    article {
+        width: 10rem; /* Original width */
+    }
+    article .icon {
+        height: 2rem; /* Original icon size */
+        width: 2rem;
+    }
+    article h3 {
+        font-size: 1.15rem;
+    }
+    article p {
+        font-size: 1rem;
+    }
+
+    #projects .details-container {
+        max-width: calc(33.33% - 1.7rem); /* Ensures 3 projects per row */
+    }
+    .project-img {
+        height: 200px;
+    }
+    .project-title {
+        font-size: 1.5rem;
+    }
+    .project-description p {
+        font-size: 1rem;
+    }
+    .btn-container .project-btn {
+        width: 7.5rem;
+        padding: 0.8rem 1.3rem;
+        font-size: 0.95rem;
+    }
+
+    #contact .contact-info-upper-container {
+        max-width: 600px;
+        padding: 0.5rem 2rem;
+    }
+    .contact-info-container p {
+        font-size: larger;
+    }
+    .contact-icon {
+        height: 2.25rem;
+    }
+    .email-icon {
+        height: 2.5rem;
+    }
+    footer {
+        margin: 0 10rem;
+    }
+}
+
+/* Big Screens (>= 1400px) */
+@media screen and (min-width: 1400px) {
+    nav {
+        padding: 0 15rem;
+    }
+    section {
+        margin: 0 15rem;
+    }
+    #profile {
+        gap: 7rem;
+    }
+    .section-pic-container {
+        height: 450px;
+        width: 450px;
+    }
+    .title {
+        font-size: 4rem;
+    }
+    .section-text-p2 {
+        font-size: 2rem;
+    }
+
+    #about .section-container {
+        gap: 6rem;
+    }
+    .about-pic {
+        max-width: 450px;
+        height: 450px;
+    }
+
+    .experience-details-container {
+        gap: 5rem;
+    }
+    .article-container {
+        gap: 3rem;
+    }
+    article {
+        width: 11rem;
+    }
+    article .icon {
+        height: 2.25rem;
+        width: 2.25rem;
+    }
+    article h3 {
+        font-size: 1.25rem;
+    }
+    article p {
+        font-size: 1.1rem;
+    }
+
+    #projects .details-container {
+        max-width: calc(33.33% - 2rem); /* Adjust for larger gap */
+        min-height: 400px; /* Ensure consistent height for project cards */
+    }
+    .project-img {
+        height: 220px;
+    }
+
+    #contact .contact-info-upper-container {
+        max-width: 700px;
+    }
+    .contact-info-container p {
+        font-size: 1.2rem;
+    }
 }
