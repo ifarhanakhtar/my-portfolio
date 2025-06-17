@@ -291,7 +291,7 @@ section {
     justify-content: space-between; /* Pushes button to bottom */
     width: 100%; /* Occupy full width within its flex container */
     max-width: 450px; /* Limit max width for larger screens */
-    margin-bottom: 2rem; /* Spacing between cards */
+    /* Removed margin-bottom here as gap on .about-container will handle spacing */
     padding: 1.5rem;
 }
 
@@ -337,43 +337,46 @@ section {
 .article-container {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
-    gap: 2.5rem; /* Gap between individual skill articles */
-    justify-content: center; /* Center the entire block of skills */
-    align-items: flex-start; /* Align all rows to the top. Can also try 'center' or 'stretch' */
-    margin-top: 1rem; /* Space below title */
+    /* justify-content: center; */ /* Changed for better distribution */
+    justify-content: space-around; /* Distributes items with space between them */
+    align-items: flex-start;
+    gap: 1.5rem; /* Reduced gap slightly for better fit, adjusted below */
+    margin-top: 1rem;
 }
 
 /* Specific styling for skill articles to ensure uniformity */
 article {
     display: flex;
-    align-items: center; /* THIS IS KEY for vertical alignment of icon and text */
-    justify-content: flex-start; /* Aligns content to the start horizontally */
+    align-items: center;
+    justify-content: flex-start;
+    /* width: 10rem; Removed fixed width */
+    flex: 0 0 calc(50% - 0.75rem); /* Allows 2 items per row, accounting for gap */
+    min-width: 120px; /* Ensure a minimum width for readability */
+    max-width: 180px; /* Prevent articles from becoming too wide */
     gap: 0.75rem; /* Space between checkmark icon and the text */
-    width: 10rem; /* Keep existing width for each skill item */
 }
 
 /* Adjustments for the checkmark icon within skill articles */
 article .icon {
     cursor: default;
-    width: 1.5rem; /* Adjust size as needed to match the screenshot or desired look */
-    height: 1.5rem; /* Keep aspect ratio */
-    flex-shrink: 0; /* Prevent the icon from shrinking */
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
 }
 
 /* Styles for the div containing the skill name and experience level */
-article > div { /* Targets the div directly inside each article */
+article > div {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Vertically centers h3 and p within this div */
-    flex-grow: 1; /* Allows this div to take up available space, pushing content */
-    text-align: left; /* Ensure text aligns left within its container */
+    justify-content: center;
+    flex-grow: 1;
+    text-align: left;
 }
 
 article h3,
 article p {
-    margin: 0; /* Remove default margins from h3 and p to prevent misalignment */
-    line-height: 1.2; /* Ensure consistent line height for text */
+    margin: 0;
+    line-height: 1.2;
 }
 
 
@@ -450,4 +453,206 @@ footer {
 }
 footer p {
     text-align: center;
+}
+
+/* Media Queries for Responsiveness - ADJUST THESE CAREFULLY */
+@media screen and (max-width: 1400px) {
+    #profile {
+        height: 100vh;
+    }
+    .section-container {
+        flex-direction: column;
+    }
+    .about-details-container {
+        align-items: center;
+    }
+    .about-container {
+        flex-direction: column;
+    }
+    .about-pic {
+        width: 300px;
+        height: 300px;
+    }
+    .arrow {
+        bottom: 0.5rem;
+    }
+    #experience, #projects {
+        height: auto; /* Allow content to dictate height */
+    }
+    .experience-details-container {
+        flex-direction: column; /* Stack skill sections on smaller screens */
+        align-items: center; /* Center stacked cards */
+    }
+    .about-container { /* This applies to the row of 3 cards in experience */
+        flex-wrap: wrap; /* Allow cards to wrap */
+        justify-content: center; /* Center cards when wrapped */
+    }
+    .experience-card {
+        max-width: 90%; /* Make cards wider on smaller screens to fill space */
+    }
+    /* Adjust article layout within experience cards for smaller screens */
+    .article-container {
+        gap: 1rem; /* Reduce gap further */
+        justify-content: space-around; /* Keep space-around */
+    }
+    article {
+        flex: 0 0 calc(50% - 0.5rem); /* Stay 2 columns */
+        min-width: 100px; /* Adjust min-width if needed */
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    #desktop-nav {
+        display: none;
+    }
+    #hamburger-nav {
+        display: flex;
+    }
+    #profile, .section-container {
+        display: block;
+    }
+    section {
+        margin: 0 5%;
+    }
+    #profile {
+        margin-top: 5rem; /* Add some top margin for mobile */
+    }
+    .section-pic-container {
+        width: 275px;
+        height: 275px;
+        margin: 0 auto 2rem;
+    }
+    .about-containers {
+        margin-top: 0;
+    }
+    /* Adjust project cards for smaller screens */
+    #projects .about-container { /* Specific to project section's inner container */
+        flex-direction: column;
+        align-items: center;
+    }
+    #projects .details-container {
+        max-width: 90%;
+        margin-bottom: 2rem;
+    }
+    .project-img {
+        width: 80%;
+        height: auto;
+    }
+    .experience-card {
+        padding: 1rem; /* Smaller padding for smaller screens */
+    }
+    .experience-card .experience-sub-title {
+        font-size: 1.5rem; /* Smaller title */
+    }
+    /* Ensure articles within skill cards remain readable on very small screens */
+    .article-container {
+        gap: 0.5rem; /* Even smaller gap */
+    }
+    article {
+        flex: 0 0 100%; /* Stack skills vertically on very small screens */
+        justify-content: center; /* Center items when stacked */
+        min-width: unset; /* Remove min-width when stacked */
+        max-width: unset; /* Remove max-width when stacked */
+    }
+    article > div {
+        text-align: center; /* Center text when items stack */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    nav {
+        height: 12vh; /* Smaller nav height */
+    }
+    #profile {
+        height: auto;
+        padding-bottom: 2rem;
+    }
+    .section-pic-container {
+        width: 250px;
+        height: 250px;
+    }
+    .title {
+        font-size: 2.5rem;
+    }
+    .section-text-p2 {
+        font-size: 1.5rem;
+    }
+    .btn-container {
+        flex-wrap: wrap;
+    }
+    .btn {
+        width: 7rem;
+        padding: 0.8rem;
+    }
+    #about, #contact {
+        height: auto;
+        padding-bottom: 2rem;
+    }
+    .text-container p {
+        font-size: 0.9rem;
+    }
+    .details-container h3 {
+        font-size: 1rem;
+    }
+    .details-container p {
+        font-size: 0.9rem;
+    }
+    .experience-sub-title {
+        font-size: 1.25rem;
+    }
+    .contact-info-container p {
+        font-size: medium;
+    }
+    .email-icon {
+        height: 2rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #profile {
+        gap: 1rem; /* Reduce gap further */
+    }
+    .section-text-p1 {
+        font-size: 0.9rem;
+    }
+    .section-text-p2 {
+        font-size: 1.2rem;
+    }
+    .title {
+        font-size: 2rem;
+    }
+    .section-pic-container {
+        width: 200px;
+        height: 200px;
+    }
+    #socials-container {
+        margin-top: 1rem;
+    }
+    .icon {
+        height: 1.5rem;
+    }
+    footer nav {
+        height: auto;
+        margin-bottom: 1rem;
+    }
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .nav-links li a {
+        font-size: 1rem;
+    }
+    footer p {
+        font-size: 0.8rem;
+    }
+    .contact-info-upper-container {
+        flex-direction: column;
+        padding: 1rem;
+        width: 80%; /* Adjust width for contact info */
+    }
+    .contact-info-container {
+        flex-direction: row; /* Keep content in a row */
+        justify-content: center; /* Center them */
+        margin: 0.5rem; /* Smaller margin */
+    }
 }
