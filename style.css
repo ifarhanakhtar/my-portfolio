@@ -353,7 +353,7 @@ section {
     position: absolute;
     right: 50%;
     transform: translateX(50%);
-    bottom: 5rem; /* Adjusted for better visibility */
+    bottom: 1rem; /* Adjusted for better visibility */
     width: 3rem;
     height: auto;
     opacity: 0.7;
