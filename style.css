@@ -115,10 +115,6 @@ a:hover {
 .hamburger-icon.open span:last-child {
     transform: rotate(-45deg) translate(10px, -5px);
 }
-/* These three lines below were resetting transforms on first-child. Removed as they conflict with open state. */
-/* .hamburger-icon span:first-child {transform: none;} */
-/* .hamburger-icon span:first-child {opacity: 1;} */
-/* .hamburger-icon span:first-child {transform: none;} */
 
 
 section {
@@ -136,7 +132,7 @@ section {
     display: flex;
     justify-content: center;
     gap: 5rem;
-    height: 80vh;  
+    height: 80vh;    
 }
 
 .section-pic-container {
@@ -292,12 +288,11 @@ section {
 .experience-details-container {
     display: flex;
     justify-content: center;
-    flex-direction: column;      
+    flex-direction: column;       
 }
 
 .article-container {
     display: flex;
-    /* text-align: initial; Remove as it's not a flex item's property for content alignment */
     flex-wrap: wrap;
     flex-direction: row;
     gap: 2.5rem; /* Gap between individual skill articles */
@@ -312,9 +307,6 @@ article {
     justify-content: flex-start; /* Aligns content to the start horizontally */
     gap: 0.75rem; /* Space between checkmark icon and the text */
     width: 10rem; /* Keep existing width for each skill item */
-    /* Optional: To ensure all skill items have roughly the same height,
-       you might set a min-height here based on your longest text + icon combination */
-    /* min-height: 4.5rem; */ /* Example: adjust this value if needed */
 }
 
 /* Adjustments for the checkmark icon within skill articles */
